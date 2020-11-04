@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Tuner</string>
-    <string name="instrument">Instrument:</string>
+    <string-array name="instruments_array">
+        <item>Guitar</item>
+        <item>Bass</item>
+        <item>Ukulele</item>
+    </string-array>
 </resources>
