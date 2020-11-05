@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.TypedValue
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
@@ -63,30 +64,25 @@ class MainActivity : AppCompatActivity() {
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
     }
+
     // basic hz to note converter
+    // includes 10 cents of leeway
     @SuppressLint("SetTextI18n")
     private fun processPitch(pitchInHz: Float) {
-        if (pitchInHz >= 110 && pitchInHz < 123.47) {
-            //A
-            noteText.text = "A"
-        } else if (pitchInHz >= 123.47 && pitchInHz < 130.81) {
-            //B
-            noteText.text = "B"
-        } else if (pitchInHz >= 130.81 && pitchInHz < 146.83) {
-            //C
-            noteText.text = "C"
-        } else if (pitchInHz >= 146.83 && pitchInHz < 164.81) {
-            //D
-            noteText.text = "D"
-        } else if (pitchInHz in 164.81..174.61) {
-            //E
-            noteText.text = "E"
-        } else if (pitchInHz >= 174.61 && pitchInHz < 185) {
-            //F
-            noteText.text = "F"
-        } else if (pitchInHz >= 185 && pitchInHz < 196) {
-            //G
-            noteText.text = "G"
+        if (noteText.text in arrayOf(
+                "A", "A#", "Bb", "B", "C", "C#", "Db", "D",
+                "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"
+            )) {
+            noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 300F)
+        }
+        when (pitchInHz) {
+            in 82.31..82.51 -> noteText.text = "E"
+            in 109.9..110.10 -> noteText.text = "A"
+            in 146.7..146.9 -> noteText.text = "D"
+            in 195.9..196.1 -> noteText.text = "G"
+            in 246.8..247.0 -> noteText.text = "B"
+            in 329.5..329.7 -> noteText.text = "E"
         }
     }
+
 }
