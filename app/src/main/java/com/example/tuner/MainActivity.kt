@@ -23,18 +23,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // ask for microphone permissions
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            val permissions = arrayOf(Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-            ActivityCompat.requestPermissions(this, permissions,0)
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED) {
+            val permissions = arrayOf(
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            ActivityCompat.requestPermissions(this, permissions, 0)
         }
 
+        // initializing instrument spinner
         val instrumentSpinner: Spinner = findViewById(R.id.instrument_spinner)
         ArrayAdapter.createFromResource(
             this,
             R.array.instruments_array,
-            android.R.layout.simple_spinner_item
+            android.R.layout.simple_spinner_dropdown_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             instrumentSpinner.adapter = adapter
@@ -57,7 +66,6 @@ class MainActivity : AppCompatActivity() {
     // basic hz to note converter
     @SuppressLint("SetTextI18n")
     private fun processPitch(pitchInHz: Float) {
-        pitchText.text = "" + pitchInHz
         if (pitchInHz >= 110 && pitchInHz < 123.47) {
             //A
             noteText.text = "A"
@@ -81,5 +89,4 @@ class MainActivity : AppCompatActivity() {
             noteText.text = "G"
         }
     }
-
 }
