@@ -19,9 +19,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
-    override fun updateMyText(note: String?) {
+
+    override fun updateNote(note: String?) {
         noteText.text = note
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -58,7 +60,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
             AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz: Float = res.pitch
-//            pitchDisplay()
             runOnUiThread { processing.processPitch(pitchInHz) }
         }
         val pitchProcessor: AudioProcessor =
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
     }
-
+    // set size of note displayed
     fun pitchDisplay() {
         if (noteText.text in arrayOf(
                 "A", "A#", "Bb", "B", "C", "C#", "Db", "D",

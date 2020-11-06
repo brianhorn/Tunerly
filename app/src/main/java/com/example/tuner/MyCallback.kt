@@ -1,5 +1,5 @@
 package com.example.tuner
 
 interface MyCallback {
-    fun updateMyText(note: String?)
+    fun updateNote(note: String?)
 }
