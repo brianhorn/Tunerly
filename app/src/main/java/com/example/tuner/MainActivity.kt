@@ -1,7 +1,6 @@
 package com.example.tuner
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.TypedValue
@@ -18,7 +17,11 @@ import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MyCallback {
+    private val processing = PitchProcessing(this@MainActivity)
+    override fun updateMyText(note: String?) {
+        noteText.text = note
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,7 +58,8 @@ class MainActivity : AppCompatActivity() {
             AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz: Float = res.pitch
-            runOnUiThread { processPitch(pitchInHz) }
+//            pitchDisplay()
+            runOnUiThread { processing.processPitch(pitchInHz) }
         }
         val pitchProcessor: AudioProcessor =
             PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, 22050F, 1024, pdh)
@@ -65,24 +69,12 @@ class MainActivity : AppCompatActivity() {
         audioThread.start()
     }
 
-    // basic hz to note converter
-    // includes 10 cents of leeway
-    @SuppressLint("SetTextI18n")
-    private fun processPitch(pitchInHz: Float) {
+    fun pitchDisplay() {
         if (noteText.text in arrayOf(
                 "A", "A#", "Bb", "B", "C", "C#", "Db", "D",
                 "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"
             )) {
             noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 300F)
         }
-        when (pitchInHz) {
-            in 82.31..82.51 -> noteText.text = "E"
-            in 109.9..110.10 -> noteText.text = "A"
-            in 146.7..146.9 -> noteText.text = "D"
-            in 195.9..196.1 -> noteText.text = "G"
-            in 246.8..247.0 -> noteText.text = "B"
-            in 329.5..329.7 -> noteText.text = "E"
-        }
     }
-
 }
