@@ -5,7 +5,7 @@ class PitchProcessing(callback: MyCallback?) {
 
     // 6 string standard tuning guitar, includes 10 cents of leeway
     fun processPitch(pitchInHz: Float) {
-        (myCallback as MainActivity).pitchDisplay()
+        (myCallback as MainActivity).noteSize()
         when (pitchInHz) {
             in 82.31..82.51 -> myCallback?.updateNote("E")
             in 109.9..110.10 -> myCallback?.updateNote("A")

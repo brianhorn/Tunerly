@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
         audioThread.start()
     }
     // set size of note displayed
-    fun pitchDisplay() {
+    fun noteSize() {
         if (noteText.text in arrayOf(
                 "A", "A#", "Bb", "B", "C", "C#", "Db", "D",
                 "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"
