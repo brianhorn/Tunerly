@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Tuner</string>
     <string name="pluck_a_string">Pluck a string!</string>
+    <string name="tune_down">Tune down</string>
+    <string name="tune_up">Tune up</string>
     <string-array name="instruments_array">
         <item>Guitar</item>
         <item>Bass</item>
