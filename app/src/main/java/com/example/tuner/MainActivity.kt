@@ -20,6 +20,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
+    private val sampleRate = 44100
+    private val bufferSize = 4096
+    private val recordOverlaps = 3072
 
     override fun updateNote(note: String?) {
         noteText.gravity = Gravity.CENTER
@@ -59,13 +62,18 @@ class MainActivity : AppCompatActivity(), MyCallback {
 
         // detecting frequencies through microphone
         val dispatcher: AudioDispatcher =
-            AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
+            AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz: Float = res.pitch
-            runOnUiThread { processing.processPitch(pitchInHz) }
+            val probability : Float = res.probability
+            //runOnUiThread{updateNote(probability.toString())}
+            if (pitchInHz > -1) {
+                runOnUiThread { processing.closestNote(pitchInHz, probability)}
+            }
         }
         val pitchProcessor: AudioProcessor =
-            PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, 22050F, 1024, pdh)
+            PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
+                sampleRate.toFloat(), bufferSize, pdh)
         dispatcher.addAudioProcessor(pitchProcessor)
 
         val audioThread = Thread(dispatcher, "Audio Thread")
