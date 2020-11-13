@@ -8,4 +8,14 @@
         <item>Bass</item>
         <item>Ukulele</item>
     </string-array>
+    <string-array name ="tuning_array_guitar">
+        <item>Standard Tuning</item>
+    </string-array>
+    <string-array name ="tuning_array_bass">
+        <item>4 String Standard</item>
+        <item>5 String Standard</item>
+    </string-array>
+    <string-array name="tuning_array_ukulele">
+        <item>Standard Reentrant</item>
+    </string-array>
 </resources>
