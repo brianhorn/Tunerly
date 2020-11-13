@@ -5,6 +5,9 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
@@ -18,20 +21,77 @@ import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), MyCallback {
+class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private val bufferSize = 4096
     private val recordOverlaps = 3072
+    private lateinit var tuningSpinner : Spinner
+    private lateinit var instrumentSpinner : Spinner
 
-    override fun updateNote(note: String?) {
-        noteText.gravity = Gravity.CENTER
-        noteText.text = note
+    // connect instrument and tuning spinner
+    override fun onItemSelected(
+        parent: AdapterView<*>,
+        view: View, pos: Int, id: Long
+    ) {
+        when(parent.getItemAtPosition(pos).toString()) {
+            "Guitar" -> ArrayAdapter.createFromResource(
+                this,
+                R.array.tuning_array_guitar,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                tuningSpinner.adapter = adapter
+            }
+            "Bass" -> ArrayAdapter.createFromResource(
+                this,
+                R.array.tuning_array_bass,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                tuningSpinner.adapter = adapter
+            }
+            "Ukulele" -> ArrayAdapter.createFromResource(
+                this,
+                R.array.tuning_array_ukulele,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                tuningSpinner.adapter = adapter
+            }
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        // Do nothing.
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // initializing instrument spinner
+        instrumentSpinner = findViewById(R.id.instrument_spinner)
+        instrumentSpinner.onItemSelectedListener = this
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.instruments_array,
+            android.R.layout.simple_spinner_dropdown_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            instrumentSpinner.adapter = adapter
+        }
+
+        // initializing tuning spinner
+        tuningSpinner = findViewById(R.id.tuning_spinner)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.tuning_array_guitar,
+            android.R.layout.simple_spinner_dropdown_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            tuningSpinner.adapter = adapter
+        }
 
         // ask for microphone permissions
         if (ContextCompat.checkSelfPermission(
@@ -49,17 +109,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
             ActivityCompat.requestPermissions(this, permissions, 0)
         }
 
-        // initializing instrument spinner
-        val instrumentSpinner: Spinner = findViewById(R.id.instrument_spinner)
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.instruments_array,
-            android.R.layout.simple_spinner_dropdown_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            instrumentSpinner.adapter = adapter
-        }
-
         // detecting frequencies through microphone
         val dispatcher: AudioDispatcher =
             AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
@@ -72,13 +121,21 @@ class MainActivity : AppCompatActivity(), MyCallback {
             }
         }
         val pitchProcessor: AudioProcessor =
-            PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
-                sampleRate.toFloat(), bufferSize, pdh)
+            PitchProcessor(
+                PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
+                sampleRate.toFloat(), bufferSize, pdh
+            )
         dispatcher.addAudioProcessor(pitchProcessor)
 
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
     }
+
+    override fun updateNote(note: String?) {
+        noteText.gravity = Gravity.CENTER
+        noteText.text = note
+    }
+
     // set size of note displayed
     fun noteSize() {
         if (noteText.text in arrayOf(
