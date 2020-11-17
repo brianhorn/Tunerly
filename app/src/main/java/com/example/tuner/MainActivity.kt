@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity(), MyCallback {
     private lateinit var tuningSpinner : Spinner
 
     object CurTuning {
-        var curTuning : String? = null
+        internal lateinit var curTuning : String
     }
 
     object CurInstrument {
-        var curInstrument : String? = null
+        internal lateinit var curInstrument : String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
