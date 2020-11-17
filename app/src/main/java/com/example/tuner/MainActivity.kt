@@ -20,50 +20,20 @@ import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
+class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private val bufferSize = 4096
     private val recordOverlaps = 3072
-    private lateinit var tuningSpinner : Spinner
     private lateinit var instrumentSpinner : Spinner
+    private lateinit var tuningSpinner : Spinner
 
-    // connect instrument and tuning spinner
-    override fun onItemSelected(
-        parent: AdapterView<*>,
-        view: View, pos: Int, id: Long
-    ) {
-        when(parent.getItemAtPosition(pos).toString()) {
-            "Guitar" -> ArrayAdapter.createFromResource(
-                this,
-                R.array.tuning_array_guitar,
-                android.R.layout.simple_spinner_dropdown_item
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                tuningSpinner.adapter = adapter
-            }
-            "Bass" -> ArrayAdapter.createFromResource(
-                this,
-                R.array.tuning_array_bass,
-                android.R.layout.simple_spinner_dropdown_item
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                tuningSpinner.adapter = adapter
-            }
-            "Ukulele" -> ArrayAdapter.createFromResource(
-                this,
-                R.array.tuning_array_ukulele,
-                android.R.layout.simple_spinner_dropdown_item
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                tuningSpinner.adapter = adapter
-            }
-        }
+    object CurTuning {
+        var curTuning : String? = null
     }
 
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        // Do nothing.
+    object CurInstrument {
+        var curInstrument : String? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +42,6 @@ class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
 
         // initializing instrument spinner
         instrumentSpinner = findViewById(R.id.instrument_spinner)
-        instrumentSpinner.onItemSelectedListener = this
         ArrayAdapter.createFromResource(
             this,
             R.array.instruments_array,
@@ -80,6 +49,43 @@ class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             instrumentSpinner.adapter = adapter
+        }
+        instrumentSpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?, pos: Int, id: Long
+            ) {
+                CurInstrument.curInstrument = parent.getItemAtPosition(pos).toString()
+                when (parent.getItemAtPosition(pos).toString()) {
+                    "Guitar" -> ArrayAdapter.createFromResource(
+                        this@MainActivity,
+                        R.array.tuning_array_guitar,
+                        android.R.layout.simple_spinner_dropdown_item
+                    ).also { adapter ->
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        tuningSpinner.adapter = adapter
+                    }
+                    "Bass" -> ArrayAdapter.createFromResource(
+                        this@MainActivity,
+                        R.array.tuning_array_bass,
+                        android.R.layout.simple_spinner_dropdown_item
+                    ).also { adapter ->
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        tuningSpinner.adapter = adapter
+                    }
+                    "Ukulele" -> ArrayAdapter.createFromResource(
+                        this@MainActivity,
+                        R.array.tuning_array_ukulele,
+                        android.R.layout.simple_spinner_dropdown_item
+                    ).also { adapter ->
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        tuningSpinner.adapter = adapter
+                    }
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing.
+            }
         }
 
         // initializing tuning spinner
@@ -91,6 +97,18 @@ class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             tuningSpinner.adapter = adapter
+        }
+        tuningSpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?, pos: Int, id: Long
+            ) {
+                CurTuning.curTuning = tuningSpinner.getItemAtPosition(pos).toString()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing.
+            }
         }
 
         // ask for microphone permissions
@@ -117,7 +135,7 @@ class MainActivity : AppCompatActivity(), OnItemSelectedListener, MyCallback {
             val probability : Float = res.probability
             //runOnUiThread{updateNote(probability.toString())}
             if (pitchInHz > -1) {
-                runOnUiThread { processing.closestNote(pitchInHz, probability)}
+                runOnUiThread { processing.tuneGuitar(pitchInHz, probability)}
             }
         }
         val pitchProcessor: AudioProcessor =
