@@ -11,18 +11,20 @@ class PitchProcessing(callback: MyCallback?) {
     private val concertPitch = 440
     private val pitchMap = mapOf(82.41F to "E", 110.00F to "A", 146.83F to "D",
         196.00F to "G", 246.94F to "B", 329.63F to "E")
+    private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard)
 
     fun tuneGuitar(pitchInHz: Float, probability: Float) {
+        val pitches = (tuningMap[MainActivity.CurTuning.curTuning] ?: error("")).frequencies
         (myCallback as MainActivity).noteSize()
         if (MainActivity.CurTuning.curTuning == "Standard Tuning") {
-            val stringPitch = closestString(pitchInHz, TuningData().guitarStandard)
+            val stringPitch = closestString(pitchInHz, pitches)
             if (probability > 0.91) {
                 myCallback?.updateNote(pitchMap.getValue(stringPitch))
             }
         }
     }
 
-    // determine which string current note is closest to
+    // determine which string current note is closest to, returns its frequency in Hz
     private fun closestString(pitchInHz: Float, tuning: FloatArray) : Float {
         var difference = abs(tuning[0] - pitchInHz)
         var idx = 0
@@ -70,3 +72,4 @@ class PitchProcessing(callback: MyCallback?) {
         }
     }
 }
+
