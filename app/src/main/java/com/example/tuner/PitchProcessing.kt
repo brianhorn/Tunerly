@@ -14,17 +14,57 @@ class PitchProcessing(callback: MyCallback?) {
     private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard)
 
     fun tuneGuitar(pitchInHz: Float, probability: Float) {
+         // stores pitches in Hz of current selected tuning
         val pitches = (tuningMap[MainActivity.CurTuning.curTuning] ?: error("")).frequencies
         (myCallback as MainActivity).noteSize()
-        if (MainActivity.CurTuning.curTuning == "Standard Tuning") {
+        if (tuningMap.keys.contains(MainActivity.CurTuning.curTuning)) {
             val stringPitch = closestString(pitchInHz, pitches)
             if (probability > 0.91) {
                 myCallback?.updateNote(pitchMap.getValue(stringPitch))
+                tuningDirection(pitchInHz, stringPitch)
             }
         }
     }
 
-    // determine which string current note is closest to, returns its frequency in Hz
+    private fun tuningDirection(curPitch : Float, toPitch : Float) {
+        var tuneUp = true
+        var tuneDown = true
+        // calculate interval in cents from hertz given
+        val cents : Float = 1200 * log2(toPitch / curPitch)
+        myCallback?.updateTest2(cents.toString())
+        if (cents > 10 || cents < -10) {
+            if (cents > 10) {
+                tuneUp = true
+                tuneDown = false
+            }
+            else if (cents < -10) {
+                tuneUp = false
+                tuneDown = true
+            }
+        }
+        else {
+            tuneUp = false
+            tuneDown = false
+        }
+
+        if (!tuneUp && !tuneDown) {
+            myCallback?.updateTest("gud")
+            myCallback?.colorTuned()
+        }
+        else if (tuneUp && !tuneDown) {
+            myCallback?.updateTest("hoch")
+            myCallback?.colorUp()
+        }
+        else if (!tuneUp && tuneDown){
+            myCallback?.updateTest("runter")
+            myCallback?.colorDown()
+        }
+    }
+
+    /**
+     * determine which string current note is closest to
+     * @return Float (Frequency in Hz)
+     */
     private fun closestString(pitchInHz: Float, tuning: FloatArray) : Float {
         var difference = abs(tuning[0] - pitchInHz)
         var idx = 0

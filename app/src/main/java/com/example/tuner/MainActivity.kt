@@ -1,7 +1,9 @@
 package com.example.tuner
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -9,16 +11,19 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import be.tarsos.dsp.AudioDispatcher
 import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
+import java.security.AccessController.getContext
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
@@ -149,6 +154,35 @@ class MainActivity : AppCompatActivity(), MyCallback {
         audioThread.start()
     }
 
+    /** 17170452 = green
+     * 17170444 = black
+     * 17170455 = red
+     */
+    @SuppressLint("ResourceType")
+    override fun colorTuned() {
+        DrawableCompat.setTint(down.drawable, ContextCompat.getColor(applicationContext, 17170452))
+        DrawableCompat.setTint(up.drawable, ContextCompat.getColor(applicationContext, 17170452))
+    }
+    @SuppressLint("ResourceType")
+    override fun colorDown() {
+        DrawableCompat.setTint(down.drawable, ContextCompat.getColor(applicationContext, 17170455))
+        DrawableCompat.setTint(up.drawable, ContextCompat.getColor(applicationContext, 17170444))
+    }
+
+    @SuppressLint("ResourceType")
+    override fun colorUp() {
+        DrawableCompat.setTint(down.drawable, ContextCompat.getColor(applicationContext, 17170444))
+        DrawableCompat.setTint(up.drawable, ContextCompat.getColor(applicationContext, 17170455))
+    }
+
+    override fun updateTest2(test: String?) {
+        test4.gravity = Gravity.CENTER
+        test4.text = test
+    }
+    override fun updateTest(test: String?) {
+        test3.gravity = Gravity.CENTER
+        test3.text = test
+    }
     override fun updateNote(note: String?) {
         noteText.gravity = Gravity.CENTER
         noteText.text = note
