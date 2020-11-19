@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
         internal lateinit var curTuning : String
     }
 
-    object CurInstrument {
-        internal lateinit var curInstrument : String
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,7 +56,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
                 parent: AdapterView<*>,
                 view: View?, pos: Int, id: Long
             ) {
-                CurInstrument.curInstrument = parent.getItemAtPosition(pos).toString()
                 when (parent.getItemAtPosition(pos).toString()) {
                     "Guitar" -> ArrayAdapter.createFromResource(
                         this@MainActivity,
