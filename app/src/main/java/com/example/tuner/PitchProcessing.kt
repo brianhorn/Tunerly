@@ -19,7 +19,7 @@ class PitchProcessing(callback: MyCallback?) {
         (myCallback as MainActivity).noteSize()
         if (tuningMap.keys.contains(MainActivity.CurTuning.curTuning)) {
             val stringPitch = closestString(pitchInHz, pitches)
-            if (probability > 0.91) {
+            if (probability > 0.92) {
                 myCallback?.updateNote(pitchMap.getValue(stringPitch))
                 tuningDirection(pitchInHz, stringPitch)
             }
@@ -31,7 +31,6 @@ class PitchProcessing(callback: MyCallback?) {
         var tuneDown = true
         // calculate interval in cents from hertz given
         val cents : Float = 1200 * log2(toPitch / curPitch)
-        myCallback?.updateTest2(cents.toString())
         if (cents > 10 || cents < -10) {
             if (cents > 10) {
                 tuneUp = true
@@ -48,16 +47,13 @@ class PitchProcessing(callback: MyCallback?) {
         }
 
         if (!tuneUp && !tuneDown) {
-            myCallback?.updateTest("gud")
-            myCallback?.colorTuned()
+            myCallback?.colorTuned("none")
         }
         else if (tuneUp && !tuneDown) {
-            myCallback?.updateTest("hoch")
-            myCallback?.colorUp()
+            myCallback?.colorTuned("up")
         }
         else if (!tuneUp && tuneDown){
-            myCallback?.updateTest("runter")
-            myCallback?.colorDown()
+            myCallback?.colorTuned("down")
         }
     }
 

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ffffff</color>
+    <color name="colorOutOfTune">#c23b22</color>
+    <color name="colorTuned">#03c03c</color>
+    <color name="colorBlack">#000000</color>
 </resources>
