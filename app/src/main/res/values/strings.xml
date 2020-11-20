@@ -10,13 +10,28 @@
     </string-array>
     <string-array name ="tuning_array_guitar">
         <item>Standard Tuning</item>
+        <item>E-Flat</item>
         <item>Drop D</item>
+        <item>Drop Db</item>
+        <item>Double Drop D</item>
+        <item> DADGAD</item>
+        <item>Open D</item>
+        <item>Open A</item>
+        <item>Open E</item>
+        <item>Open G</item>
     </string-array>
     <string-array name ="tuning_array_bass">
         <item>4 String Standard</item>
         <item>5 String Standard</item>
+        <item>6 String Standard</item>
+        <item>4 String Drop D</item>
+        <item>4 String D Standard</item>
+        <item>4 String Drop C</item>
     </string-array>
     <string-array name="tuning_array_ukulele">
         <item>Standard Reentrant</item>
+        <item>Traditional Soprano</item>
+        <item>Baritone</item>
+        <item>Bass</item>
     </string-array>
 </resources>

@@ -9,9 +9,36 @@ class PitchProcessing(callback: MyCallback?) {
     private var myCallback: MyCallback? = callback
     private val allNotes = arrayOf("A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#")
     private val concertPitch = 440
-    private val pitchMap = mapOf(82.41F to "E", 110.00F to "A", 146.83F to "D",
-        196.00F to "G", 246.94F to "B", 329.63F to "E")
-    private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard)
+    private val pitchMap = mapOf(30.87F to "B", 32.70F to "C", 36.71F to "D", 41.20F to "E", 49.00F to "G",
+        55.00F to "A", 65.40F to "C",
+        69.30F to "Db", 73.42F to "D", 77.78F to "Eb", 82.41F to "E", 87.31F to "F",
+        98.00F to "G",
+        103.83F to "Ab", 110.00F to "A", 123.47F to "B",
+        130.81F to "C",
+        138.59F to "Db", 146.83F to "D", 164.81F to "E",
+        185.00F to "Gb", 196.00F to "G",
+        207.65F to "G#", 220.00F to "A", 233.08F to "Bb", 246.94F to "B",
+        261.63F to "C",
+        293.66F to "D", 311.13F to "Eb", 329.63F to "E", 370.00F to "Gb",
+        392.00F to "G", 440.00F to "A", 493.88F to "B")
+    private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard,
+        "E-Flat" to TuningData.GuitarEFlat, "Drop D" to TuningData.GuitarDropD,
+        "Drop Db" to TuningData.GuitarDropDb, "Double Drop D" to TuningData.GuitarDoubleDropD,
+        "DADGAD" to TuningData.GuitarDADGAD,
+        "Open D" to TuningData.GuitarOpenD,
+        "Open A" to TuningData.GuitarOpenA,
+        "Open E" to TuningData.GuitarOpenE,
+        "Open G" to TuningData.GuitarOpenG,
+        "4 String Standard" to TuningData.BassStandard4,
+        "5 String Standard" to TuningData.BassStandard5,
+        "6 String Standard" to TuningData.BassStandard6,
+        "4 String Drop D" to TuningData.BassDropD,
+        "4 String D Standard" to TuningData.BassDStandard,
+        "4 String Drop C" to TuningData.BassDropC,
+        "Standard Reentrant" to TuningData.UkuleleStandard,
+        "Traditional Soprano" to TuningData.UkuleleTraditional,
+        "Baritone" to TuningData.UkuleleBaritone,
+        "Bass" to TuningData.UkuleleBass)
 
     fun tuneGuitar(pitchInHz: Float, probability: Float) {
          // stores pitches in Hz of current selected tuning
