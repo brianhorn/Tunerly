@@ -7,6 +7,7 @@
         <item>Guitar</item>
         <item>Bass</item>
         <item>Ukulele</item>
+        <item>Chromatic</item>
     </string-array>
     <string-array name ="tuning_array_guitar">
         <item>Standard Tuning</item>
@@ -33,5 +34,8 @@
         <item>Traditional Soprano</item>
         <item>Baritone</item>
         <item>Bass</item>
+    </string-array>
+    <string-array name="chromatic">
+        <item> </item>
     </string-array>
 </resources>

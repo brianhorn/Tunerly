@@ -34,10 +34,9 @@
         android:id="@+id/tuning_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
         android:layout_marginTop="16dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintStart_toEndOf="@+id/instrument_spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -77,37 +76,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.132" />
-
-    <TextView
-        android:id="@+id/test3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginLeft="169dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="218dp"
-        android:layout_marginRight="218dp"
-        android:gravity="center"
-        android:text="test"
-        app:layout_constraintBottom_toTopOf="@+id/noteText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/test4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="369dp"
-        android:layout_marginLeft="369dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="218dp"
-        android:layout_marginRight="218dp"
-        android:gravity="center"
-        android:text="test"
-        app:layout_constraintBottom_toTopOf="@+id/noteText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

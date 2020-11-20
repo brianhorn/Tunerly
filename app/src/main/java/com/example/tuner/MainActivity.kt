@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity(), MyCallback {
         internal lateinit var curTuning : String
     }
 
+    object CurInstrument {
+        internal lateinit var curInstrument : String
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,31 +59,36 @@ class MainActivity : AppCompatActivity(), MyCallback {
                 parent: AdapterView<*>,
                 view: View?, pos: Int, id: Long
             ) {
+                CurInstrument.curInstrument = instrumentSpinner.getItemAtPosition(pos).toString()
                 when (parent.getItemAtPosition(pos).toString()) {
-                    "Guitar" -> ArrayAdapter.createFromResource(
+                    "Guitar" -> { tuningSpinner.visibility = View.VISIBLE
+                        ArrayAdapter.createFromResource(
                         this@MainActivity,
                         R.array.tuning_array_guitar,
                         android.R.layout.simple_spinner_dropdown_item
                     ).also { adapter ->
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter
+                        tuningSpinner.adapter = adapter }
                     }
-                    "Bass" -> ArrayAdapter.createFromResource(
+                    "Bass" -> { tuningSpinner.visibility = View.VISIBLE
+                        ArrayAdapter.createFromResource(
                         this@MainActivity,
                         R.array.tuning_array_bass,
                         android.R.layout.simple_spinner_dropdown_item
                     ).also { adapter ->
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter
+                        tuningSpinner.adapter = adapter }
                     }
-                    "Ukulele" -> ArrayAdapter.createFromResource(
+                    "Ukulele" -> { tuningSpinner.visibility = View.VISIBLE
+                        ArrayAdapter.createFromResource(
                         this@MainActivity,
                         R.array.tuning_array_ukulele,
                         android.R.layout.simple_spinner_dropdown_item
                     ).also { adapter ->
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter
+                        tuningSpinner.adapter = adapter }
                     }
+                    "Chromatic" -> tuningSpinner.visibility = View.GONE
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -135,7 +143,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
             val probability : Float = res.probability
             //runOnUiThread{updateNote(probability.toString())}
             if (pitchInHz > -1) {
-                runOnUiThread { processing.tuneGuitar(pitchInHz, probability)}
+                runOnUiThread { processing.tune(pitchInHz, probability)}
             }
         }
         val pitchProcessor: AudioProcessor =

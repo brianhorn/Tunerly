@@ -8,19 +8,26 @@ import kotlin.math.pow
 class PitchProcessing(callback: MyCallback?) {
     private var myCallback: MyCallback? = callback
     private val allNotes = arrayOf("A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#")
-    private val concertPitch = 440
-    private val pitchMap = mapOf(30.87F to "B", 32.70F to "C", 36.71F to "D", 41.20F to "E", 49.00F to "G",
-        55.00F to "A", 65.40F to "C",
-        69.30F to "Db", 73.42F to "D", 77.78F to "Eb", 82.41F to "E", 87.31F to "F",
-        98.00F to "G",
-        103.83F to "Ab", 110.00F to "A", 123.47F to "B",
-        130.81F to "C",
-        138.59F to "Db", 146.83F to "D", 164.81F to "E",
-        185.00F to "Gb", 196.00F to "G",
-        207.65F to "G#", 220.00F to "A", 233.08F to "Bb", 246.94F to "B",
-        261.63F to "C",
-        293.66F to "D", 311.13F to "Eb", 329.63F to "E", 370.00F to "Gb",
-        392.00F to "G", 440.00F to "A", 493.88F to "B")
+    private val pitchMap = mapOf(16.35F to "C", 17.32F to "C#", 18.35F to "D", 19.45F to "D#",
+        20.60F to "E", 21.83F to "F", 23.12F to "F#", 24.50F to "G", 25.96F to "G#", 27.50F to "A",
+        29.14F to "A#", 30.87F to "B", 32.70F to "C", 34.65F to "C#", 36.71F to "D", 38.90F to "D#",
+        41.20F to "E", 43.65F to "F", 46.25F to "F#", 49.00F to "G", 51.91F to "G#", 55.00F to "A",
+        58.27F to "A#", 61.74F to "B", 65.40F to "C", 69.30F to "Db", 73.42F to "D", 77.78F to "Eb",
+        82.41F to "E", 87.31F to "F", 92.50F to "F#", 98.00F to "G", 103.83F to "Ab", 110.00F to "A",
+        116.54F to "A#", 123.47F to "B", 130.81F to "C", 138.59F to "Db", 146.83F to "D",
+        155.56F to "D#", 164.81F to "E", 174.61F to "F", 185.00F to "Gb", 196.00F to "G",
+        207.65F to "G#", 220.00F to "A", 233.08F to "Bb", 246.94F to "B", 261.63F to "C",
+        277.18F to "C#", 293.66F to "D", 311.13F to "Eb", 329.63F to "E", 349.23F to "F",
+        370.00F to "Gb", 392.00F to "G", 415.30F to "G#", 440.00F to "A", 466.16F to "A#",
+        493.88F to "B", 523.25F to "C", 554.37F to "C#", 587.33F to "D", 622.25F to "D#",
+        659.26F to "E", 698.46F to "F", 739.99F to "F#", 784.00F to "G", 830.61F to "G#",
+        880.00F to "A", 932.33F to "A#", 987.76F to "B", 1046.50F to "C", 1108.73F to "C#",
+        1174.66F to "D", 1244.50F to "D#", 1318.51F to "E", 1396.91F to "F", 1479.98F to "F#",
+        1567.98F to "G", 1661.22F to "G#", 1760.00F to "A", 1864.66F to "A#", 1975.53F to "B",
+        2093.01F to "C", 2217.46F to "C#", 2349.32F to "D", 2489.02F to "D#", 2637.02F to "E",
+        2793.83F to "F", 2959.96F to "F#", 3135.96F to "G", 3322.44F to "G#", 3520.00F to "A",
+        3729.31F to "A#", 3951.07F to "B", 4186.01F to "C")
+
     private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard,
         "E-Flat" to TuningData.GuitarEFlat, "Drop D" to TuningData.GuitarDropD,
         "Drop Db" to TuningData.GuitarDropDb, "Double Drop D" to TuningData.GuitarDoubleDropD,
@@ -40,15 +47,23 @@ class PitchProcessing(callback: MyCallback?) {
         "Baritone" to TuningData.UkuleleBaritone,
         "Bass" to TuningData.UkuleleBass)
 
-    fun tuneGuitar(pitchInHz: Float, probability: Float) {
-         // stores pitches in Hz of current selected tuning
-        val pitches = (tuningMap[MainActivity.CurTuning.curTuning] ?: error("")).frequencies
-        (myCallback as MainActivity).noteSize()
-        if (tuningMap.keys.contains(MainActivity.CurTuning.curTuning)) {
-            val stringPitch = closestString(pitchInHz, pitches)
+    fun tune(pitchInHz: Float, probability: Float) {
+        if (MainActivity.CurInstrument.curInstrument == "Chromatic") {
+            closestNote(pitchInHz)
             if (probability > 0.92) {
-                myCallback?.updateNote(pitchMap.getValue(stringPitch))
-                tuningDirection(pitchInHz, stringPitch)
+                myCallback?.updateNote(closestNote(pitchInHz))
+                tuningDirection(pitchInHz, closestPitch(pitchInHz))
+            }
+        } else {
+            // stores pitches in Hz of current selected tuning
+            val pitches = (tuningMap[MainActivity.CurTuning.curTuning] ?: error("")).frequencies
+            (myCallback as MainActivity).noteSize()
+            if (tuningMap.keys.contains(MainActivity.CurTuning.curTuning)) {
+                val stringPitch = closestString(pitchInHz, pitches)
+                if (probability > 0.92) {
+                    myCallback?.updateNote(pitchMap.getValue(stringPitch))
+                    tuningDirection(pitchInHz, stringPitch)
+                }
             }
         }
     }
@@ -101,38 +116,22 @@ class PitchProcessing(callback: MyCallback?) {
         return tuning[idx]
     }
 
-    /** detects closest note in A = concertPitch with equal temperament formula:
+    /** detects closest note in A = 440 with equal temperament formula:
      * pitch(i) = pitch(0) * 2^(halfSteps/12)
      * therefore formula to derive interval between two pitches:
      * i = 12 * log2 * (pitch(i)/pitch(o))
      */
-    fun closestNote(pitchInHz: Float, probability: Float) {
+    private fun closestNote(pitchInHz: Float) : String {
         (myCallback as MainActivity).noteSize()
-        val i = (round(log2(pitchInHz / concertPitch) * 12)).toInt()
+        val i = (round(log2(pitchInHz / 440) * 12)).toInt()
         // floorMod implementation to prevent ArrayIndexOutOfBoundException
-        val closestNote = allNotes[(i % 12 + 12) % 12]
-        if (probability > 0.91) {
-            myCallback?.updateNote(closestNote)
-        }
+        return allNotes[(i % 12 + 12) % 12]
     }
 
     private fun closestPitch(pitchInHz: Float): Float {
-        val i = (round(log2(pitchInHz / concertPitch) * 12)).toInt()
-        val closestPitch = concertPitch * 2.toDouble().pow(i.toDouble() / 12)
+        val i = (round(log2(pitchInHz / 440) * 12)).toInt()
+        val closestPitch = 440 * 2.toDouble().pow(i.toDouble() / 12)
         return closestPitch.toFloat()
-    }
-
-    // 6 string standard tuning guitar, includes 10 cents of leeway
-    fun processPitch(pitchInHz: Float) {
-        (myCallback as MainActivity).noteSize()
-        when (pitchInHz) {
-            in 82.31..82.51 -> myCallback?.updateNote("E")
-            in 109.9..110.10 -> myCallback?.updateNote("A")
-            in 146.7..146.9 -> myCallback?.updateNote("D")
-            in 195.9..196.1 -> myCallback?.updateNote("G")
-            in 246.8..247.0 -> myCallback?.updateNote("B")
-            in 329.5..329.7 -> myCallback?.updateNote("E")
-        }
     }
 }
 
