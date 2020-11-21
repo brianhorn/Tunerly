@@ -157,10 +157,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
         audioThread.start()
     }
 
-    /** 17170452 = green
-     * 17170444 = black
-     * 17170455 = red
-     */
     override fun colorTuned(tuningDirection: String) {
         var colorTop = R.color.colorBlack
         var colorBottom = R.color.colorBlack
