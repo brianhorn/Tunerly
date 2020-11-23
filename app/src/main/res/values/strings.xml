@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tuner</string>
+    <string name="app_name">Tunerly</string>
     <string name="pluck_a_string">Play</string>
     <string name="tune_down">Tune down</string>
     <string name="tune_up">Tune up</string>
