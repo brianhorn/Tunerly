@@ -3,13 +3,19 @@
     <string name="pluck_a_string">Play</string>
     <string name="tune_down">Tune down</string>
     <string name="tune_up">Tune up</string>
+    <string name="annotation">\?</string>
+    <string name="popup"><![CDATA[
+        <br>
+        <p><b>Blue arrow:</b> Tune in the direction the arrow points to</p><br>
+        <b>Both arrows green:</b> You are in tune</p>
+    ]]></string>
     <string-array name="instruments_array">
         <item>Guitar</item>
         <item>Bass</item>
         <item>Ukulele</item>
         <item>Chromatic</item>
     </string-array>
-    <string-array name ="tuning_array_guitar">
+    <string-array name="tuning_array_guitar">
         <item>Standard Tuning</item>
         <item>E-Flat</item>
         <item>Drop D</item>
@@ -21,7 +27,7 @@
         <item>Open E</item>
         <item>Open G</item>
     </string-array>
-    <string-array name ="tuning_array_bass">
+    <string-array name="tuning_array_bass">
         <item>4 String Standard</item>
         <item>5 String Standard</item>
         <item>6 String Standard</item>

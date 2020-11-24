@@ -1,6 +1,7 @@
 package com.example.tuner
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -23,7 +25,6 @@ import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
     object CurInstrument {
         internal lateinit var curInstrument : String
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -61,32 +63,38 @@ class MainActivity : AppCompatActivity(), MyCallback {
             ) {
                 CurInstrument.curInstrument = instrumentSpinner.getItemAtPosition(pos).toString()
                 when (parent.getItemAtPosition(pos).toString()) {
-                    "Guitar" -> { tuningSpinner.visibility = View.VISIBLE
+                    "Guitar" -> {
+                        tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
-                        this@MainActivity,
-                        R.array.tuning_array_guitar,
-                        android.R.layout.simple_spinner_dropdown_item
-                    ).also { adapter ->
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter }
+                            this@MainActivity,
+                            R.array.tuning_array_guitar,
+                            android.R.layout.simple_spinner_dropdown_item
+                        ).also { adapter ->
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            tuningSpinner.adapter = adapter
+                        }
                     }
-                    "Bass" -> { tuningSpinner.visibility = View.VISIBLE
+                    "Bass" -> {
+                        tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
-                        this@MainActivity,
-                        R.array.tuning_array_bass,
-                        android.R.layout.simple_spinner_dropdown_item
-                    ).also { adapter ->
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter }
+                            this@MainActivity,
+                            R.array.tuning_array_bass,
+                            android.R.layout.simple_spinner_dropdown_item
+                        ).also { adapter ->
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            tuningSpinner.adapter = adapter
+                        }
                     }
-                    "Ukulele" -> { tuningSpinner.visibility = View.VISIBLE
+                    "Ukulele" -> {
+                        tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
-                        this@MainActivity,
-                        R.array.tuning_array_ukulele,
-                        android.R.layout.simple_spinner_dropdown_item
-                    ).also { adapter ->
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        tuningSpinner.adapter = adapter }
+                            this@MainActivity,
+                            R.array.tuning_array_ukulele,
+                            android.R.layout.simple_spinner_dropdown_item
+                        ).also { adapter ->
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            tuningSpinner.adapter = adapter
+                        }
                     }
                     "Chromatic" -> tuningSpinner.visibility = View.GONE
                 }
@@ -117,6 +125,13 @@ class MainActivity : AppCompatActivity(), MyCallback {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Do nothing.
             }
+        }
+
+        // popup window
+        val annotation = findViewById<View>(R.id.annotation) as TextView
+        annotation.setOnClickListener {
+            val intent = Intent(this, PopUpWindow::class.java)
+            startActivity(intent)
         }
 
         // ask for microphone permissions
@@ -176,22 +191,38 @@ class MainActivity : AppCompatActivity(), MyCallback {
             }
         }
 
-        val drawableUp = DrawableCompat.wrap(ContextCompat.getDrawable(this, R.drawable.ic_play_arrow)!!)
+        val drawableUp = DrawableCompat.wrap(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_play_arrow
+            )!!
+        )
         up.setImageDrawable(drawableUp)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             DrawableCompat.setTint(drawableUp, ContextCompat.getColor(this, colorTop))
 
         } else {
-            drawableUp.mutate().colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(colorTop, BlendModeCompat.SRC_ATOP)
+            drawableUp.mutate().colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
+                colorTop,
+                BlendModeCompat.SRC_ATOP
+            )
         }
 
-        val drawableDown = DrawableCompat.wrap(ContextCompat.getDrawable(this, R.drawable.ic_play_arrow)!!)
+        val drawableDown = DrawableCompat.wrap(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_play_arrow
+            )!!
+        )
         down.setImageDrawable(drawableDown)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             DrawableCompat.setTint(drawableDown, ContextCompat.getColor(this, colorBottom))
 
         } else {
-            drawableDown.mutate().colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(colorBottom, BlendModeCompat.SRC_ATOP)
+            drawableDown.mutate().colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
+                colorBottom,
+                BlendModeCompat.SRC_ATOP
+            )
         }
     }
 
