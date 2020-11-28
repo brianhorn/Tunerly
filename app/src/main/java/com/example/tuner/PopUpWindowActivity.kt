@@ -18,13 +18,13 @@ import kotlinx.android.synthetic.main.activity_pop_up_window.*
 class PopUpWindowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         overridePendingTransition(0, 0)
         setTheme(R.style.popup_dialog)
         setContentView(R.layout.activity_pop_up_window)
 
         val text: String = getString(R.string.popup)
         popup_window_text.text = getSpannedText(text)
-
 
         val alpha = 100 //between 0-255
         val hexColor = java.lang.String.format("#%06X", 0xFFFFFF and R.color.textColorPrimary)
@@ -45,7 +45,6 @@ class PopUpWindowActivity : AppCompatActivity() {
         popup_window_view_with_border.animate().alpha(1f).setDuration(500).setInterpolator(
             DecelerateInterpolator()
         ).start()
-        // Close the Popup Window when you press the button
     }
 
     private fun getSpannedText(text: String): Spanned? {

@@ -63,7 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.878"
+        app:tint="@color/colorControlNormal" />
 
     <ImageView
         android:id="@+id/up"
@@ -76,7 +77,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.132"
+        app:tint="@color/colorControlNormal" />
 
     <TextView
         android:id="@+id/annotation"
@@ -87,7 +89,6 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/annotation"
-        android:textColor="@color/colorQuestionMark"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

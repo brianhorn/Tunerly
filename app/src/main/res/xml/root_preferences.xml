@@ -4,8 +4,7 @@
     <SwitchPreferenceCompat
         app:key="dark_theme"
         app:defaultValue="false"
-        app:title="@string/switch_theme"
-        android:theme="@style/AppTheme_dark"/>
+        app:title="@string/switch_theme" />
 
     <ListPreference
         android:key="language_preference"

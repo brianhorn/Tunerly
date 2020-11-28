@@ -25,7 +25,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="1dp"
-            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp"
@@ -35,7 +34,6 @@
                 android:id="@+id/popup_window_background_container"
                 android:layout_width="300dp"
                 android:minHeight="130dp"
-                android:background="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:layout_centerInParent="true">
@@ -49,7 +47,6 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:layout_gravity="start"
-                    android:textColor="#212121"
                     android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
