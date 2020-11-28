@@ -12,9 +12,9 @@ import android.text.Spanned
 import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
+import androidx.core.text.HtmlCompat
 import kotlinx.android.synthetic.main.activity_pop_up_window.*
 
-@Suppress("DEPRECATION")
 class PopUpWindowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class PopUpWindowActivity : AppCompatActivity() {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
         } else {
-            Html.fromHtml(text)
+            HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
     }
 
