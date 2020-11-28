@@ -71,7 +71,7 @@ class PitchProcessing(callback: MyCallback?) {
     private fun tuningDirection(curPitch : Float, toPitch : Float) {
         var tuneUp = true
         var tuneDown = true
-        // calculate interval in cents from hertz given
+        // calculate interval in cents from hz given
         val cents : Float = 1200 * log2(toPitch / curPitch)
         if (cents > 10 || cents < -10) {
             if (cents > 10) {

@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="@id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
         android:id="@+id/tuning_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toEndOf="@+id/instrument_spinner"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +87,7 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/annotation"
-        android:textColor="#BFBDB8"
+        android:textColor="@color/colorQuestionMark"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

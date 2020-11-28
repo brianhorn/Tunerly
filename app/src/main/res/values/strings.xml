@@ -1,20 +1,33 @@
 <resources>
+    <!-- General -->
     <string name="app_name">Tunerly</string>
     <string name="pluck_a_string">Play</string>
     <string name="tune_down">Tune down</string>
     <string name="tune_up">Tune up</string>
     <string name="annotation">\?</string>
+    <string name="switch_theme">Dark theme</string>
+    <string name="preference_title">Language</string>
     <string name="popup"><![CDATA[
         <br>
         <p><b>Blue arrow:</b> Tune in the direction the arrow points to</p><br>
         <b>Both arrows green:</b> You are in tune</p>
     ]]></string>
+
+    <!-- Settings fields -->
+    <string name="more">more</string>
+    <string name="settings">Settings</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="donate">Donate</string>
+
+    <!-- Instrument Spinner-->
     <string-array name="instruments_array">
         <item>Guitar</item>
         <item>Bass</item>
         <item>Ukulele</item>
         <item>Chromatic</item>
     </string-array>
+
+    <!-- Tunings -->
     <string-array name="tuning_array_guitar">
         <item>Standard Tuning</item>
         <item>E-Flat</item>
@@ -44,4 +57,20 @@
     <string-array name="chromatic">
         <item> </item>
     </string-array>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="dark_theme">dark_theme</string>
+
+    <!-- Language Preference -->
+    <string-array name="language_array">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+
+    <string-array name="language_data">
+        <item>english</item>
+        <item>german</item>
+    </string-array>
+
 </resources>

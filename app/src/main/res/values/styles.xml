@@ -1,8 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
-    <style name="AppTheme_translucent" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme_dark" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name ="colorPrimary">@color/colorPrimaryDark</item>
+        <item name ="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryDark</item>
+    </style>
+    <style name="AppTheme_translucent" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>

@@ -15,7 +15,7 @@ import androidx.core.graphics.ColorUtils
 import kotlinx.android.synthetic.main.activity_pop_up_window.*
 
 @Suppress("DEPRECATION")
-class PopUpWindow : AppCompatActivity() {
+class PopUpWindowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
@@ -25,10 +25,15 @@ class PopUpWindow : AppCompatActivity() {
         val text: String = getString(R.string.popup)
         popup_window_text.text = getSpannedText(text)
 
+
         val alpha = 100 //between 0-255
-        val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
+        val hexColor = java.lang.String.format("#%06X", 0xFFFFFF and R.color.textColorPrimary)
+        val alphaColor = ColorUtils.setAlphaComponent(
+            Color.parseColor(hexColor),
+            alpha
+        )
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)
-        colorAnimation.duration = 500 // milliseconds
+        colorAnimation.duration = 500 // ms
         colorAnimation.addUpdateListener { animator ->
             popup_window_background.setBackgroundColor(animator.animatedValue as Int)
 
@@ -54,7 +59,10 @@ class PopUpWindow : AppCompatActivity() {
     override fun onBackPressed() {
         // Fade animation for the background of Popup Window when you press the back button
         val alpha = 100 // between 0-255
-        val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
+        val alphaColor = ColorUtils.setAlphaComponent(
+            Color.parseColor(R.color.textColorPrimary.toString()),
+            alpha
+        )
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), alphaColor, Color.TRANSPARENT)
         colorAnimation.duration = 300 // milliseconds
         colorAnimation.addUpdateListener { animator ->

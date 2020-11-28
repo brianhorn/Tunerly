@@ -6,25 +6,24 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.Gravity
-import android.view.View
-import android.widget.AdapterView
+import android.view.*
+import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.preference.PreferenceManager
 import be.tarsos.dsp.AudioDispatcher
 import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
@@ -44,7 +43,16 @@ class MainActivity : AppCompatActivity(), MyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
+
+        // save current state of dark mode
+        val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_theme", true)
+        if (isNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
         // initializing instrument spinner
         instrumentSpinner = findViewById(R.id.instrument_spinner)
@@ -127,10 +135,14 @@ class MainActivity : AppCompatActivity(), MyCallback {
             }
         }
 
+        // menu
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
         // popup window
         val annotation = findViewById<View>(R.id.annotation) as TextView
         annotation.setOnClickListener {
-            val intent = Intent(this, PopUpWindow::class.java)
+            val intent = Intent(this, PopUpWindowActivity::class.java)
             startActivity(intent)
         }
 
@@ -172,9 +184,36 @@ class MainActivity : AppCompatActivity(), MyCallback {
         audioThread.start()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    // Items in menu
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.settings) {
+            val myIntent = Intent(this@MainActivity, SettingsActivity::class.java)
+            this@MainActivity.startActivity(myIntent)
+            return true
+        }
+        if (id == R.id.privacy_policy) {
+            Toast.makeText(this, "Item Two Clicked", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if (id == R.id.donate) {
+            Toast.makeText(this, "Item Three Clicked", Toast.LENGTH_LONG).show()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun colorTuned(tuningDirection: String) {
-        var colorTop = R.color.colorBlack
-        var colorBottom = R.color.colorBlack
+        var colorTop = R.color.colorControlNormal
+        var colorBottom = R.color.colorControlNormal
 
         when (tuningDirection) {
             "none" -> {
@@ -183,10 +222,10 @@ class MainActivity : AppCompatActivity(), MyCallback {
             }
             "up" -> {
                 colorTop = R.color.colorOutOfTune
-                colorBottom = R.color.colorBlack
+                colorBottom = R.color.colorControlNormal
             }
             "down" -> {
-                colorTop = R.color.colorBlack
+                colorTop = R.color.colorControlNormal
                 colorBottom = R.color.colorOutOfTune
             }
         }
