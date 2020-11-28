@@ -4,5 +4,5 @@
     <color name="textColorPrimary">#000000</color>
     <color name="colorOutOfTune">#2979FF</color>
     <color name="colorTuned">#00E676</color>
-    <color name="colorControlNormal">#000000</color>
+    <color name="colorControlNormal">#4F5B62</color>
 </resources>
