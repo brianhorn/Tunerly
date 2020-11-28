@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
-    <color name="colorAccentDark">#FFFFFF</color>
     <color name="textColorPrimary">#000000</color>
-    <color name="textColorPrimaryDark">#FFFFFF</color>
-    <color name="colorOutOfTune">#4A90E2</color>
-    <color name="colorTuned">#64DD17</color>
+    <color name="colorOutOfTune">#2979FF</color>
+    <color name="colorTuned">#00E676</color>
     <color name="colorControlNormal">#000000</color>
-    <color name="colorControlDark">#FFFFFF</color>
-    <color name="colorQuestionMark">#BFBDB8</color>
 </resources>
