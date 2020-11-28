@@ -42,10 +42,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setTheme(R.style.AppTheme)
-        setContentView(R.layout.activity_main)
-
         // save current state of dark mode
         val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_theme", true)
         if (isNightMode) {
@@ -53,6 +49,10 @@ class MainActivity : AppCompatActivity(), MyCallback {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+        super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
+        setContentView(R.layout.activity_main)
+
 
         // initializing instrument spinner
         instrumentSpinner = findViewById(R.id.instrument_spinner)
@@ -146,6 +146,8 @@ class MainActivity : AppCompatActivity(), MyCallback {
             startActivity(intent)
         }
 
+
+
         // ask for microphone permissions
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -182,6 +184,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
 
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
