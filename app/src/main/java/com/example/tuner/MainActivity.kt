@@ -146,8 +146,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
             startActivity(intent)
         }
 
-
-
         // ask for microphone permissions
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -279,7 +277,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                 "A", "A#", "Bb", "B", "C", "C#", "Db", "D",
                 "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"
             )) {
-            noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 300F)
+            noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 280F)
         }
     }
 }

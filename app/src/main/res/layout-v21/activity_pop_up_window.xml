@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="1dp"
+            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp"
@@ -36,7 +37,8 @@
                 android:minHeight="130dp"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:background="#FFFFFF" >
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/popup_window_text"

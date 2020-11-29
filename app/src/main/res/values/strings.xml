@@ -61,6 +61,7 @@
     <!-- Settings -->
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="dark_theme">dark_theme</string>
+    <string name="logo">logo</string>
 
     <!-- Language Preference -->
     <string-array name="language_array">
