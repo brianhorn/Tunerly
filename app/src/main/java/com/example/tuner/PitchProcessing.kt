@@ -29,8 +29,12 @@ class PitchProcessing(callback: MyCallback?) {
         3729.31F to "A#", 3951.07F to "B", 4186.01F to "C")
 
     private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard,
-        "E-Flat" to TuningData.GuitarEFlat, "Drop D" to TuningData.GuitarDropD,
-        "Drop Db" to TuningData.GuitarDropDb, "Double Drop D" to TuningData.GuitarDoubleDropD,
+        "7 String" to TuningData.GuitarSeven,
+        "8 String" to TuningData.GuitarEight,
+        "E-Flat" to TuningData.GuitarEFlat,
+        "Drop D" to TuningData.GuitarDropD,
+        "Drop Db" to TuningData.GuitarDropDb,
+        "Double Drop D" to TuningData.GuitarDoubleDropD,
         "DADGAD" to TuningData.GuitarDADGAD,
         "Open D" to TuningData.GuitarOpenD,
         "Open A" to TuningData.GuitarOpenA,

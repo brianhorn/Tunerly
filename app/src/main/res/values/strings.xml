@@ -31,6 +31,8 @@
     <!-- Tunings -->
     <string-array name="tuning_array_guitar">
         <item>Standard Tuning</item>
+        <item>7 String</item>
+        <item>8 String</item>
         <item>E-Flat</item>
         <item>Drop D</item>
         <item>Drop Db</item>

@@ -3,6 +3,8 @@ package com.example.tuner
 enum class TuningData(vararg f: Float) {
     // Guitar Tunings
     GuitarStandard(82.41F, 110.00F, 146.83F, 196.00F, 246.94F, 329.63F),
+    GuitarSeven(61.74F, 82.41F, 110.00F, 146.83F, 196.00F, 246.94F, 329.63F),
+    GuitarEight(46.25F, 61.74F, 82.41F, 110.00F, 146.83F, 196.00F, 246.94F, 329.63F),
     GuitarEFlat(77.78F, 103.83F, 138.59F, 185.00F, 233.08F, 311.13F),
     GuitarDropD(73.42F, 110.00F, 146.83F, 196.00F, 246.94F, 329.63F),
     GuitarDropDb(69.30F, 103.83F, 138.59F, 185.00F, 233.08F, 311.13F),
