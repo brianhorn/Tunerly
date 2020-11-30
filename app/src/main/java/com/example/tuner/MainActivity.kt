@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -54,11 +55,10 @@ class MainActivity : AppCompatActivity(), MyCallback {
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.RECORD_AUDIO ),
+                arrayOf(Manifest.permission.RECORD_AUDIO),
                 1234
             )
         }
-
         // save current state of dark mode
         val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
             "dark_theme",
@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
-
 
         // initializing instrument spinner
         instrumentSpinner = findViewById(R.id.instrument_spinner)
@@ -166,9 +165,35 @@ class MainActivity : AppCompatActivity(), MyCallback {
             val dialog: DialogFragment = Dialog()
             dialog.show(supportFragmentManager, "MyDialogFragmentTag")
         }
+        val permission: Int = PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        if (permission == PermissionChecker.PERMISSION_GRANTED) {
+            audioProcessing()
+        }
     }
 
-    // audio processing and permission handling
+    private fun audioProcessing() {
+        // detecting frequencies through microphone
+        val dispatcher: AudioDispatcher =
+            AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
+        val pdh = PitchDetectionHandler { res, _ ->
+            val pitchInHz: Float = res.pitch
+            val probability : Float = res.probability
+            if (pitchInHz > -1) {
+                runOnUiThread { processing.tune(pitchInHz, probability)}
+            }
+        }
+        val pitchProcessor: AudioProcessor =
+            PitchProcessor(
+                PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
+                sampleRate.toFloat(), bufferSize, pdh
+            )
+        dispatcher.addAudioProcessor(pitchProcessor)
+
+        val audioThread = Thread(dispatcher, "Audio Thread")
+        audioThread.start()
+    }
+
+    // permission handling
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -180,25 +205,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                 if (grantResults.isNotEmpty()
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 ) {
-                    // detecting frequencies through microphone
-                    val dispatcher: AudioDispatcher =
-                        AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
-                    val pdh = PitchDetectionHandler { res, _ ->
-                        val pitchInHz: Float = res.pitch
-                        val probability : Float = res.probability
-                        if (pitchInHz > -1) {
-                            runOnUiThread { processing.tune(pitchInHz, probability)}
-                        }
-                    }
-                    val pitchProcessor: AudioProcessor =
-                        PitchProcessor(
-                            PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
-                            sampleRate.toFloat(), bufferSize, pdh
-                        )
-                    dispatcher.addAudioProcessor(pitchProcessor)
-
-                    val audioThread = Thread(dispatcher, "Audio Thread")
-                    audioThread.start()
+                    audioProcessing()
                 } else {
                     Log.d("TAG", "permission denied by user")
                 }
