@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.fragment.app.DialogFragment
 import androidx.preference.PreferenceManager
 import be.tarsos.dsp.AudioDispatcher
 import be.tarsos.dsp.AudioProcessor
@@ -23,7 +24,6 @@ import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
@@ -43,7 +43,10 @@ class MainActivity : AppCompatActivity(), MyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // save current state of dark mode
-        val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_theme", true)
+        val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+            "dark_theme",
+            true
+        )
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
@@ -139,11 +142,11 @@ class MainActivity : AppCompatActivity(), MyCallback {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // popup window
+        // annotation dialog
         val annotation = findViewById<View>(R.id.annotation) as TextView
         annotation.setOnClickListener {
-            val intent = Intent(this, PopUpWindowActivity::class.java)
-            startActivity(intent)
+            val dialog: DialogFragment = Dialog()
+            dialog.show(supportFragmentManager, "MyDialogFragmentTag")
         }
 
         // ask for microphone permissions
@@ -184,6 +187,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
         audioThread.start()
 
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater

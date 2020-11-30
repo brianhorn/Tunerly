@@ -8,10 +8,11 @@
     <string name="switch_theme">Dark theme</string>
     <string name="preference_title">Language</string>
     <string name="popup"><![CDATA[
-        <br>
         <p><b>Blue arrow:</b> Tune in the direction the arrow points to</p><br>
         <b>Both arrows green:</b> You are in tune</p>
     ]]></string>
+    <string name="popup_title">Info</string>
+    <string name="ok">OK</string>
 
     <!-- Settings fields -->
     <string name="more">more</string>
