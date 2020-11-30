@@ -25,7 +25,6 @@ class SettingsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Settings"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

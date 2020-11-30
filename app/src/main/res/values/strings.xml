@@ -5,20 +5,21 @@
     <string name="tune_down">Tune down</string>
     <string name="tune_up">Tune up</string>
     <string name="annotation">\?</string>
+    <string name="logo">logo</string>
     <string name="switch_theme">Dark theme</string>
     <string name="preference_title">Language</string>
     <string name="popup"><![CDATA[
-        <p><b>Blue arrow:</b> Tune in the direction the arrow points to</p><br>
-        <b>Both arrows green:</b> You are in tune</p>
+        <p>Blue arrow: Tune in the direction the arrow points to</p><br>
+        Both arrows green: You are in tune</p>
     ]]></string>
     <string name="popup_title">Info</string>
     <string name="ok">OK</string>
 
     <!-- Settings fields -->
-    <string name="more">more</string>
     <string name="settings">Settings</string>
+    <string name="about">About</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="donate">Donate</string>
+    <string name="contact">Contact</string>
 
     <!-- Instrument Spinner-->
     <string-array name="instruments_array">
@@ -64,7 +65,14 @@
     <!-- Settings -->
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="dark_theme">dark_theme</string>
-    <string name="logo">logo</string>
+
+    <!-- About -->
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="contact_text">
+        If you have any questions, suggestions or bugs to report, you can
+        contact me at:m
+    </string>
+    <string name="contact_email">tunerlyapp@gmail.com</string>
 
     <!-- Language Preference -->
     <string-array name="language_array">

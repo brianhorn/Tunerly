@@ -5,10 +5,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.*
-import android.widget.*
+import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
@@ -28,20 +32,33 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
-    private val bufferSize = 4096
+    private var bufferSize: Int = 4096
     private val recordOverlaps = 3072
-    private lateinit var instrumentSpinner : Spinner
-    private lateinit var tuningSpinner : Spinner
+    private lateinit var instrumentSpinner: Spinner
+    private lateinit var tuningSpinner: Spinner
 
     object CurTuning {
-        internal lateinit var curTuning : String
+        internal lateinit var curTuning: String
     }
 
     object CurInstrument {
-        internal lateinit var curInstrument : String
+        internal lateinit var curInstrument: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // ask for microphone permissions
+        if (ContextCompat.checkSelfPermission(
+                this@MainActivity,
+                Manifest.permission.RECORD_AUDIO
+            )
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECORD_AUDIO ),
+                1234
+            )
+        }
+
         // save current state of dark mode
         val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
             "dark_theme",
@@ -52,6 +69,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
@@ -148,46 +166,46 @@ class MainActivity : AppCompatActivity(), MyCallback {
             val dialog: DialogFragment = Dialog()
             dialog.show(supportFragmentManager, "MyDialogFragmentTag")
         }
-
-        // ask for microphone permissions
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.RECORD_AUDIO
-            ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED) {
-            val permissions = arrayOf(
-                Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-            ActivityCompat.requestPermissions(this, permissions, 0)
-        }
-
-        // detecting frequencies through microphone
-        val dispatcher: AudioDispatcher =
-            AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
-        val pdh = PitchDetectionHandler { res, _ ->
-            val pitchInHz: Float = res.pitch
-            val probability : Float = res.probability
-            //runOnUiThread{updateNote(probability.toString())}
-            if (pitchInHz > -1) {
-                runOnUiThread { processing.tune(pitchInHz, probability)}
-            }
-        }
-        val pitchProcessor: AudioProcessor =
-            PitchProcessor(
-                PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
-                sampleRate.toFloat(), bufferSize, pdh
-            )
-        dispatcher.addAudioProcessor(pitchProcessor)
-
-        val audioThread = Thread(dispatcher, "Audio Thread")
-        audioThread.start()
-
     }
 
+    // audio processing and permission handling
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            1234 -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.isNotEmpty()
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
+                    // detecting frequencies through microphone
+                    val dispatcher: AudioDispatcher =
+                        AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
+                    val pdh = PitchDetectionHandler { res, _ ->
+                        val pitchInHz: Float = res.pitch
+                        val probability : Float = res.probability
+                        if (pitchInHz > -1) {
+                            runOnUiThread { processing.tune(pitchInHz, probability)}
+                        }
+                    }
+                    val pitchProcessor: AudioProcessor =
+                        PitchProcessor(
+                            PitchProcessor.PitchEstimationAlgorithm.FFT_YIN,
+                            sampleRate.toFloat(), bufferSize, pdh
+                        )
+                    dispatcher.addAudioProcessor(pitchProcessor)
+
+                    val audioThread = Thread(dispatcher, "Audio Thread")
+                    audioThread.start()
+                } else {
+                    Log.d("TAG", "permission denied by user")
+                }
+                return
+            }
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
@@ -204,12 +222,9 @@ class MainActivity : AppCompatActivity(), MyCallback {
             this@MainActivity.startActivity(myIntent)
             return true
         }
-        if (id == R.id.privacy_policy) {
-            Toast.makeText(this, "Item Two Clicked", Toast.LENGTH_LONG).show()
-            return true
-        }
-        if (id == R.id.donate) {
-            Toast.makeText(this, "Item Three Clicked", Toast.LENGTH_LONG).show()
+        if (id == R.id.about) {
+            val myIntent = Intent(this@MainActivity, AboutActivity::class.java)
+            this@MainActivity.startActivity(myIntent)
             return true
         }
 

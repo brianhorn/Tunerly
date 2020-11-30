@@ -5,10 +5,6 @@
         android:title="@string/settings" />
 
     <item
-        android:id="@+id/privacy_policy"
-        android:title="@string/privacy_policy" />
-
-    <item
-        android:id="@+id/donate"
-        android:title="@string/donate" />
+        android:id="@+id/about"
+        android:title="@string/about" />
 </menu>
