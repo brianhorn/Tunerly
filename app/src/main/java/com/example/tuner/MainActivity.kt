@@ -1,6 +1,8 @@
 package com.example.tuner
 
 import android.Manifest
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -29,6 +31,7 @@ import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
@@ -91,7 +94,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
             ) {
                 CurInstrument.curInstrument = instrumentSpinner.getItemAtPosition(pos).toString()
                 when (parent.getItemAtPosition(pos).toString()) {
-                    "Guitar" -> {
+                    getString(R.string.guitar) -> {
                         tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
                             this@MainActivity,
@@ -102,7 +105,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                             tuningSpinner.adapter = adapter
                         }
                     }
-                    "Bass" -> {
+                    getString(R.string.bass) -> {
                         tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
                             this@MainActivity,
@@ -113,7 +116,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                             tuningSpinner.adapter = adapter
                         }
                     }
-                    "Ukulele" -> {
+                    getString(R.string.ukulele) -> {
                         tuningSpinner.visibility = View.VISIBLE
                         ArrayAdapter.createFromResource(
                             this@MainActivity,
@@ -124,7 +127,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                             tuningSpinner.adapter = adapter
                         }
                     }
-                    "Chromatic" -> tuningSpinner.visibility = View.GONE
+                    getString(R.string.chromatic) -> tuningSpinner.visibility = View.GONE
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -165,11 +168,24 @@ class MainActivity : AppCompatActivity(), MyCallback {
             val dialog: DialogFragment = Dialog()
             dialog.show(supportFragmentManager, "MyDialogFragmentTag")
         }
-        val permission: Int = PermissionChecker.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        val permission: Int = PermissionChecker.checkSelfPermission(
+            this,
+            Manifest.permission.RECORD_AUDIO
+        )
         if (permission == PermissionChecker.PERMISSION_GRANTED) {
             audioProcessing()
         }
     }
+
+    /*
+    override fun attachBaseContext(newBase: Context?) {
+        val localeToSwitchTo = Locale(SettingsActivity.SettingsFragment().todo)
+        val localeUpdatedContext: ContextWrapper? =
+            newBase?.let { ContextUtils(newBase).updateLocale(it, localeToSwitchTo) }
+        super.attachBaseContext(localeUpdatedContext)
+    }
+
+     */
 
     private fun audioProcessing() {
         // detecting frequencies through microphone

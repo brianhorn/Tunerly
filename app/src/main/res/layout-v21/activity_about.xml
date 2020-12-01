@@ -37,13 +37,13 @@
             android:id="@+id/contactText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="30dp"
-            android:paddingStart="0dp"
-            android:lineSpacingExtra="3dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
+            android:lineSpacingExtra="3dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
             android:text="@string/contact_text"
-            android:textSize="15sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactSeparator" />
 
@@ -51,11 +51,110 @@
             android:id="@+id/contactEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
             android:autoLink="email"
             android:text="@string/contact_email"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactText" />
 
+        <TextView
+            android:id="@+id/privacyPolicySeparator"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/privacy_policy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactEmail" />
+
+        <TextView
+            android:id="@+id/privacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:lineSpacingExtra="3dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/privacy_policy_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacyPolicySeparator" />
+
+        <TextView
+            android:id="@+id/privacyPolicyLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:lineSpacingExtra="3dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
+            android:autoLink="web"
+            android:text="@string/privacy_policy_link"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacyPolicy" />
+
+        <TextView
+            android:id="@+id/githubSeparator"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/github"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacyPolicyLink" />
+
+        <TextView
+            android:id="@+id/github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="3dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
+            android:text="@string/github_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/githubSeparator" />
+
+        <TextView
+            android:id="@+id/githubLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/github_link"
+            android:paddingStart="0dp"
+            android:paddingEnd="30dp"
+            android:autoLink="web"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/github" />
+
+        <TextView
+            android:id="@+id/versionSeparator"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/version"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/githubLink" />
+
+        <TextView
+            android:id="@+id/versionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/versionSeparator" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

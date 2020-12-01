@@ -28,10 +28,14 @@ class PitchProcessing(callback: MyCallback?) {
         2793.83F to "F", 2959.96F to "F#", 3135.96F to "G", 3322.44F to "G#", 3520.00F to "A",
         3729.31F to "A#", 3951.07F to "B", 4186.01F to "C")
 
-    private val tuningMap = mapOf("Standard Tuning" to TuningData.GuitarStandard,
+    private val tuningMap = mapOf(
+        "Standard" to TuningData.GuitarStandard,
         "7 String" to TuningData.GuitarSeven,
+        "7 Saiten" to TuningData.GuitarSeven,
         "8 String" to TuningData.GuitarEight,
+        "8 Saiten" to TuningData.GuitarEight,
         "E-Flat" to TuningData.GuitarEFlat,
+        "Eb" to TuningData.GuitarEFlat,
         "Drop D" to TuningData.GuitarDropD,
         "Drop Db" to TuningData.GuitarDropDb,
         "Double Drop D" to TuningData.GuitarDoubleDropD,
@@ -40,19 +44,24 @@ class PitchProcessing(callback: MyCallback?) {
         "Open A" to TuningData.GuitarOpenA,
         "Open E" to TuningData.GuitarOpenE,
         "Open G" to TuningData.GuitarOpenG,
-        "4 String Standard" to TuningData.BassStandard4,
-        "5 String Standard" to TuningData.BassStandard5,
-        "6 String Standard" to TuningData.BassStandard6,
-        "4 String Drop D" to TuningData.BassDropD,
-        "4 String D Standard" to TuningData.BassDStandard,
-        "4 String Drop C" to TuningData.BassDropC,
-        "Standard Reentrant" to TuningData.UkuleleStandard,
-        "Traditional Soprano" to TuningData.UkuleleTraditional,
+        "4 String" to TuningData.BassStandard4,
+        "4 Saiten" to TuningData.BassStandard4,
+        "5 String" to TuningData.BassStandard5,
+        "5 Saiten" to TuningData.BassStandard5,
+        "6 String" to TuningData.BassStandard6,
+        "6 Saiten" to TuningData.BassStandard6,
+        "Drop D" to TuningData.BassDropD,
+        "D Standard" to TuningData.BassDStandard,
+        "Drop C" to TuningData.BassDropC,
+        "Reentrant" to TuningData.UkuleleStandard,
+        "Soprano" to TuningData.UkuleleTraditional,
+        "Sopran" to TuningData.UkuleleTraditional,
         "Baritone" to TuningData.UkuleleBaritone,
+        "Bariton" to TuningData.UkuleleBaritone,
         "Bass" to TuningData.UkuleleBass)
 
     fun tune(pitchInHz: Float, probability: Float) {
-        if (MainActivity.CurInstrument.curInstrument == "Chromatic") {
+        if ((MainActivity.CurInstrument.curInstrument == "Chromatic") || (MainActivity.CurInstrument.curInstrument == "Chromatisch")) {
             closestNote(pitchInHz)
             if (probability > 0.92) {
                 myCallback?.updateNote(closestNote(pitchInHz))
@@ -138,4 +147,3 @@ class PitchProcessing(callback: MyCallback?) {
         return closestPitch.toFloat()
     }
 }
-

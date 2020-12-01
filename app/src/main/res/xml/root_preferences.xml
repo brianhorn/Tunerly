@@ -8,7 +8,7 @@
         app:title="@string/switch_theme" />
 
     <ListPreference
-        android:key="language_preference"
+        android:key="@string/language_preference"
         android:title="@string/preference_title"
         android:entries="@array/language_array"
         android:entryValues="@array/language_data"

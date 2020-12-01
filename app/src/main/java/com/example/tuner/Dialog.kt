@@ -23,7 +23,7 @@ class Dialog : DialogFragment() {
         return builder.create()
     }
 
-    fun getSpannedText(text: String): Spanned? {
+    private fun getSpannedText(text: String): Spanned? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
         } else {
