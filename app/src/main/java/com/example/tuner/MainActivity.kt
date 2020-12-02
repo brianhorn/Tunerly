@@ -63,7 +63,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
         // save current state of dark mode
         val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
             "dark_theme",
-            true
+            false
         )
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
