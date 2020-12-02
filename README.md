@@ -1,6 +1,6 @@
 # Tunerly
 
-A minimalistic, multi-language tuning app for Android. Tunerly is suited for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. 
+Tunerly is suited for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. 
 Supported languages are currently: English, German and Russian.
 
 ## Screenshots
