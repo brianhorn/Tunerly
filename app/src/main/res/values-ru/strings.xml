@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pluck_a_string">готов</string>
+    <string name="tune_down">Hochstimmen</string>
+    <string name="tune_up">Runterstimmen</string>
+    <string name="preference_title">язык</string>
+    <string name="popup"><![CDATA[
+        <p>Синяя стрелка: звук в том направлении,в котором стрелка указывает </p><br>
+        Обе стрелки зелёные: твой инструмент настроен </p>
+    ]]></string>
+    <string name="settings">Настройки</string>
+    <string name="about">О нас</string>
+    <string name="privacy_policy">политика конфиденциальности</string>
+    <string name="privacy_policy_text">вы можете найти нашу политику конфиденциальности здесь</string>
+    <string name="github_text">Tunerly открытый источник арр. Проект ты найдёшь здесь Github</string>
+    <string name="contact_text">если у вас есть какие-либо вопросы или предложения, или вы обнаружили ошибку вы можете связаться со мной здесь</string>
+
+    <!-- Instrument Spinner-->
+    <string-array name="instruments_array">
+        <item>Гитара</item>
+        <item>бас</item>
+        <item>Укулеле</item>
+        <item>Хроматический</item>
+    </string-array>
+
+    <!-- Tunings -->
+    <string-array name="tuning_array_guitar">
+        <item>Стандарт</item>
+        <item>7 струн</item>
+        <item>8 струн</item>
+        <item>Eb</item>
+        <item>Drop D</item>
+        <item>Drop Db</item>
+        <item>Double Drop D</item>
+        <item>DADGAD</item>
+        <item>Open D</item>
+        <item>Open A</item>
+        <item>Open E</item>
+        <item>Open G</item>
+    </string-array>
+    <string-array name="tuning_array_bass">
+        <item>4 струн</item>
+        <item>5 струн</item>
+        <item>6 струн</item>
+        <item>Drop D</item>
+        <item>D Стандарт</item>
+        <item>Drop C</item>
+    </string-array>
+    <string-array name="tuning_array_ukulele">
+        <item>C (Стандарт)</item>
+        <item>D (Традиционный)</item>
+        <item>Баритон</item>
+        <item>бас</item>
+    </string-array>
+    <string-array name="chromatic">
+        <item> </item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>английский</item>
+        <item>Немецкий</item>
+        <item>Русский</item>
+    </string-array>
+    <string name="switch_theme">"тёмная"</string>
+    <string name="popup_title">Информация</string>
+    <string name="ok">ОК</string>
+    <string name="contact">Контакт</string>
+    <string name="guitar">Гитара</string>
+    <string name="bass">бас</string>
+    <string name="ukulele">Укулеле</string>
+    <string name="chromatic">Хроматический</string>
+    <string name="version">версия</string>
+</resources>

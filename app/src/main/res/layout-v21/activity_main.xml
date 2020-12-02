@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="4dp"
+        app:layout_constrainedWidth="true"
         app:layout_constraintStart_toStartOf="@id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,9 +34,10 @@
         android:id="@+id/tuning_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:dropDownWidth="wrap_content"
         android:layout_marginTop="4dp"
-        android:spinnerMode="dropdown"
+        android:layout_marginEnd="40dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toEndOf="@+id/instrument_spinner"
         app:layout_constraintTop_toTopOf="parent" />
 

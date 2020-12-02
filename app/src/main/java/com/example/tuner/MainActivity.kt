@@ -126,6 +126,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
                         }
                     }
                     getString(R.string.chromatic) -> tuningSpinner.visibility = View.GONE
+
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {

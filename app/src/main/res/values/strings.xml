@@ -6,14 +6,14 @@
     <string name="tune_up">Tune up</string>
     <string name="annotation" translatable="false">\?</string>
     <string name="logo" translatable="false">logo</string>
-    <string name="switch_theme" translatable="false">Dark Theme</string>
+    <string name="switch_theme">Dark Theme</string>
     <string name="preference_title">Language</string>
     <string name="popup"><![CDATA[
         <p>Blue arrow: Tune in the direction the arrow points to</p><br>
         Both arrows green: You are in tune</p>
     ]]></string>
-    <string name="popup_title" translatable="false">Info</string>
-    <string name="ok" translatable="false">OK</string>
+    <string name="popup_title">Info</string>
+    <string name="ok">OK</string>
 
     <!-- Settings fields -->
     <string name="settings">Settings</string>
@@ -51,8 +51,8 @@
         <item>Drop C</item>
     </string-array>
     <string-array name="tuning_array_ukulele">
-        <item>Reentrant</item>
-        <item>Soprano</item>
+        <item>C (Standard)</item>
+        <item>D (Traditional)</item>
         <item>Baritone</item>
         <item>Bass</item>
     </string-array>
@@ -75,10 +75,10 @@
     <string name="github" translatable="false">Github</string>
     <string name="github_text">Tunerly is an Open Source app. You can find the project on Github here:</string>
     <string name="github_link" translatable="false">www.google.de</string>
-    <string name="version" translatable="false">Version</string>
+    <string name="version">Version</string>
     <string name="guitar">Guitar</string>
-    <string name="bass" translatable="false">Bass</string>
-    <string name="ukulele" translatable="false">Ukulele</string>
+    <string name="bass">Bass</string>
+    <string name="ukulele">Ukulele</string>
     <string name="chromatic">Chromatic</string>
     <string name="language_preference" translatable="false">language_preference</string>
 
@@ -86,11 +86,13 @@
     <string-array name="language_array">
         <item>English</item>
         <item>German</item>
+        <item>Russian</item>
     </string-array>
 
     <string-array name="language_data">
         <item>en</item>
         <item>de</item>
+        <item>ru</item>
     </string-array>
 
 </resources>

@@ -48,19 +48,26 @@
         <item>Drop C</item>
     </string-array>
     <string-array name="tuning_array_ukulele">
-        <item>Standard</item>
-        <item>Sopran</item>
+        <item>C (Standard)</item>
+        <item>D (Traditionell)</item>
         <item>Bariton</item>
         <item>Bass</item>
     </string-array>
     <string-array name="chromatic">
         <item> </item>
     </string-array>
-    <string name="guitar">Gitarre</string>
-    <string name="chromatic">Chromatisch</string>
 
     <string-array name="language_array">
         <item>Englisch</item>
         <item>Deutsch</item>
+        <item>Russisch</item>
     </string-array>
+    <string name="switch_theme">Dark Theme</string>
+    <string name="popup_title">Info</string>
+    <string name="ok">OK</string>
+    <string name="guitar">Gitarre</string>
+    <string name="bass">Bass</string>
+    <string name="ukulele">Ukulele</string>
+    <string name="chromatic">Chromatisch</string>
+    <string name="version" translatable="false">Version</string>
 </resources>
