@@ -1,23 +1,17 @@
 package com.example.tuner
 
-import android.content.Context
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
-class SettingsActivity : AppCompatActivity() {
-    //var locale: String = Locale.getDefault().toString()
+
+class SettingsActivity : LocalizationActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +39,9 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
-        lateinit var todo: String
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
+
             // theme
             val switchPreferenceCompat: SwitchPreferenceCompat? =
                 findPreference("dark_theme")
@@ -73,17 +67,25 @@ class SettingsActivity : AppCompatActivity() {
             listPreference?.setOnPreferenceChangeListener { preference, newValue ->
                 if (preference is ListPreference) {
                     val index = preference.findIndexOfValue(newValue.toString())
-                    val language = preference.entries[index]
                     val locale = preference.entryValues[index]
-                    Log.i(
-                        "selected val",
-                        " position - $index value - $language, entryValue - $locale "
-                    )
-                    Toast.makeText(activity,locale, Toast.LENGTH_LONG).show()
-                    todo = locale.toString()
+
+                    if (locale == "de") {
+                        (activity as SettingsActivity).changeLanguageGer()
+                    }
+                    if (locale == "en") {
+                        (activity as SettingsActivity).changeLanguageEn()
+                    }
                 }
                 true
             }
         }
+    }
+
+    fun changeLanguageGer() {
+        setLanguage("de")
+    }
+
+    fun changeLanguageEn() {
+        setLanguage("en")
     }
 }

@@ -1,8 +1,6 @@
 package com.example.tuner
 
 import android.Manifest
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -15,7 +13,6 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -30,10 +27,10 @@ import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
-class MainActivity : AppCompatActivity(), MyCallback {
+class MainActivity : LocalizationActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private var bufferSize: Int = 4096
@@ -62,6 +59,7 @@ class MainActivity : AppCompatActivity(), MyCallback {
                 1234
             )
         }
+
         // save current state of dark mode
         val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
             "dark_theme",
@@ -176,16 +174,6 @@ class MainActivity : AppCompatActivity(), MyCallback {
             audioProcessing()
         }
     }
-
-    /*
-    override fun attachBaseContext(newBase: Context?) {
-        val localeToSwitchTo = Locale(SettingsActivity.SettingsFragment().todo)
-        val localeUpdatedContext: ContextWrapper? =
-            newBase?.let { ContextUtils(newBase).updateLocale(it, localeToSwitchTo) }
-        super.attachBaseContext(localeUpdatedContext)
-    }
-
-     */
 
     private fun audioProcessing() {
         // detecting frequencies through microphone
