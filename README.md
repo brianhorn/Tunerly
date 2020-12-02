@@ -1,4 +1,7 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # Tunerly
+
 
 Tunerly is suited for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. 
 Supported languages are currently: English, German and Russian.
