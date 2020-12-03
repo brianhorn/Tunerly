@@ -1,6 +1,7 @@
 package com.example.tuner
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -27,14 +28,17 @@ import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
+import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : LocalizationActivity(), MyCallback {
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private var bufferSize: Int = 4096
     private val recordOverlaps = 3072
+    private val localizationDelegate = LocalizationApplicationDelegate()
     private lateinit var instrumentSpinner: Spinner
     private lateinit var tuningSpinner: Spinner
 
@@ -196,6 +200,12 @@ class MainActivity : LocalizationActivity(), MyCallback {
 
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
+    }
+
+    // set language to default phone language
+    override fun attachBaseContext(newBase: Context) {
+        localizationDelegate.setDefaultLanguage(newBase, Locale.getDefault())
+        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
     }
 
     // permission handling
