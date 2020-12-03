@@ -14,9 +14,9 @@ use, collect, transmit, distribute or sell any other personal data.
 
 As of the writing of this Privacy Policy, Tunerly is free and Open Source. It is also ad-free.
 
-The current Privacy Policy may be changed, We will keep this document up to date.
+The current Privacy Policy may be changed, This document will be kept up to date.
 
-Last updated: December 02, 2020
+Last updated: December 03, 2020
 
 ## DE
 
