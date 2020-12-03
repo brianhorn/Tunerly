@@ -12,9 +12,9 @@
     <string name="about">Über</string>
     <string name="contact">Kontakt</string>
     <string name="privacy_policy">Datenschutz-Bestimmung</string>
-    <string name="privacy_policy_text">"Unsere Datenschutz-Bestimmung findest du hier "</string>
-    <string name="github_text">"Tunerly ist eine Open Source App. Das Projekt findest du hier auf Github "</string>
-    <string name="contact_text">Solltest du irgendwelche Fragen oder Vorschläge haben, oder hast du einen Fehler gefunden, kannst du mich hier kontaktieren </string>
+    <string name="privacy_policy_text">"Die Datenschutz-Bestimmung findest Du hier "</string>
+    <string name="github_text">"Tunerly ist eine Open Source App. Das Projekt findest Du hier auf Github "</string>
+    <string name="contact_text">Solltest Du irgendwelche Fragen oder Vorschläge haben, oder hast Du einen Fehler gefunden, kannst Du mich hier kontaktieren </string>
 
     <!-- Instrument Spinner-->
     <string-array name="instruments_array">

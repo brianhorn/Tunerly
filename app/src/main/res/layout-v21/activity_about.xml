@@ -71,32 +71,19 @@
             app:layout_constraintTop_toBottomOf="@+id/contactEmail" />
 
         <TextView
-            android:id="@+id/privacyPolicy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:lineSpacingExtra="3dp"
-            android:paddingStart="0dp"
-            android:paddingEnd="30dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/privacy_policy_text"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/privacyPolicySeparator" />
-
-        <TextView
             android:id="@+id/privacyPolicyLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autoLink="web"
             android:lineSpacingExtra="3dp"
             android:paddingStart="0dp"
             android:paddingEnd="30dp"
-            android:autoLink="web"
             android:text="@string/privacy_policy_link"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/privacyPolicy" />
+            app:layout_constraintTop_toBottomOf="@+id/privacyPolicySeparator" />
 
         <TextView
             android:id="@+id/githubSeparator"
