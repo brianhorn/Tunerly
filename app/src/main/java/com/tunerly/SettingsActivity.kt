@@ -1,4 +1,4 @@
-package com.example.tuner
+package com.tunerly
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,6 +8,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
+import com.example.tuner.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 

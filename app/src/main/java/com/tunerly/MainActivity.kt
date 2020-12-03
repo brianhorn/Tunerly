@@ -1,4 +1,4 @@
-package com.example.tuner
+package com.tunerly
 
 import android.Manifest
 import android.content.Context
@@ -30,6 +30,7 @@ import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
+import com.example.tuner.R
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 

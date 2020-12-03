@@ -1,4 +1,4 @@
-package com.example.tuner
+package com.tunerly
 
 interface MyCallback {
     fun updateNote(note: String?)

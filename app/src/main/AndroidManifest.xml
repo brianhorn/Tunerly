@@ -14,13 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.tunerly.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".AboutActivity"
+            android:name="com.tunerly.AboutActivity"
             android:label="@string/title_activity_about" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.tunerly.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

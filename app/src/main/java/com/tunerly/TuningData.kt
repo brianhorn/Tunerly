@@ -1,4 +1,4 @@
-package com.example.tuner
+package com.tunerly
 
 enum class TuningData(vararg f: Float) {
     // Guitar Tunings

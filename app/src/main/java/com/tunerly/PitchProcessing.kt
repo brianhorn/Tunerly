@@ -1,5 +1,6 @@
-package com.example.tuner
+package com.tunerly
 
+import com.example.tuner.R
 import kotlin.math.round
 import kotlin.math.log2
 import kotlin.math.abs
@@ -71,7 +72,8 @@ class PitchProcessing(callback: MyCallback?) {
         "Bariton" to TuningData.UkuleleBaritone,
         "Баритон" to TuningData.UkuleleBaritone,
         "Bass" to TuningData.UkuleleBass,
-        "бас" to TuningData.UkuleleBass)
+        "бас" to TuningData.UkuleleBass
+    )
 
     fun tune(pitchInHz: Float, probability: Float) {
         if (MainActivity.CurInstrument.curInstrument == (myCallback as MainActivity).getString(R.string.chromatic)) {

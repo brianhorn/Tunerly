@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
-        applicationId "com.example.tuner"
+        applicationId "com.tunerly"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1

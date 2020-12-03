@@ -1,4 +1,4 @@
-package com.example.tuner
+package com.tunerly
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -8,6 +8,7 @@ import android.text.Html
 import android.text.Spanned
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.DialogFragment
+import com.example.tuner.R
 
 class Dialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
