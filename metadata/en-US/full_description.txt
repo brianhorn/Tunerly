@@ -1,0 +1,9 @@
+Tunerly is a minimalistic, multi-language pitch tuning app which can be used for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. Currently supported languages are English, German and Russian. Tunerly also has the option of switching between dark and light theme.
+
+Supported tunings are:
+
+* Guitar: Standard, 7 string, 8 string, E-Flat, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
+
+* Bass: 4 string, 5 string, 6 string, Drop D, D Standard, Drop C
+
+* Ukulele: C (Standard), D (Traditional), Baritone, Bass
