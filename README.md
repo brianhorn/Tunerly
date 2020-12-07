@@ -8,7 +8,7 @@ Currently supported languages are: English, German and Russian.
 
 ## Screenshots
 
-<img src="metadata/de-DE/images/phoneScreenshots/1.png" width="400"> <img src="metadata/de-DE/images/phoneScreenshots/2.png" width="400"><img src="metadata/de-DE/images/phoneScreenshots/3.png" width="400"><img src="metadata/de-DE/images/phoneScreenshots/4.png" width="400"><img src="metadata/de-DE/images/phoneScreenshots/5.png" width="400"><img src="metadata/de-DE/images/phoneScreenshots/6.png" width="400">
+<img src="/screenshots/1.png" width="400"> <img src="/screenshots/2.png" width="400"><img src="/screenshots/3.png" width="400"><img src="/screenshots/4.png" width="400"><img src="/screenshots/5.png" width="400"><img src="/screenshots/6.png" width="400">
 
 ## Supported Instrument Tunings
 
