@@ -1,0 +1,7 @@
+Tunerly ist ein minimalistisches, mehrsprachiges Stimmgerät mit dem Du deine Gitarre, dein Bass oder deine Ukulele in verschiedenen Tonlagen stimmen kannst. Ein chromatisches Stimmgerät ist auch vorhanden. Die momentan unterstützten Sprachen sind englisch, deutsch und russisch. Tunerly verfügt über einen dark- und light-mode.
+
+Verfügbare Stimmungen sind:
+
+* Gitarre: Standard, 7 Saiten, 8 Saiten, Eb, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
+* Bass: 4 Saiten, 5 Saiten, 6 Saiten, Drop D, D Standard, Drop C
+* Ukulele: C (Standard), D (Traditionell), Bariton, Bass
