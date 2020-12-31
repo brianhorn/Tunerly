@@ -71,7 +71,7 @@
     <string name="contact_email" translatable="false">tunerlyapp@gmail.com</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_text">Privacy Policy can be found here</string>
-    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy_en_de_rus.md</string>
+    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy_en_de_rus_eu.md</string>
     <string name="github" translatable="false">Github</string>
     <string name="github_text">Tunerly is an Open Source app. You can find the project on Github here</string>
     <string name="github_link" translatable="false">https://github.com/brianhorn/Tunerly</string>

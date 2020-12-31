@@ -71,7 +71,7 @@
     <string name="contact_email" translatable="false">tunerlyapp@gmail.com</string>
     <string name="privacy_policy">Pribatutasun gidalerroa</string>
     <string name="privacy_policy_text">Pribatutasun gidalerroa hemen aurkitu dezakezu</string>
-    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy_en_de_rus.md</string>
+    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy_en_de_rus_eu.md</string>
     <string name="github" translatable="false">Github</string>
     <string name="github_text">Tunerly kode irekiko aplikazioa da. Proiektua GitHuben aurkitu dezakezu</string>
     <string name="github_link" translatable="false">https://github.com/brianhorn/Tunerly</string>
