@@ -1,0 +1,9 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#000000</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="colorOutOfTune">#40C4FF</color>
+    <color name="colorTuned">#00E676</color>
+    <color name="colorControlNormal">#4F5B62</color>
+</resources>
