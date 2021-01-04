@@ -79,6 +79,9 @@ class SettingsActivity : LocalizationActivity() {
                     if (locale == "ru") {
                         (activity as SettingsActivity).changeLanguageRu()
                     }
+                    if (locale == "eu") {
+                        (activity as SettingsActivity).changeLanguageEu()
+                    }
                 }
                 true
             }
@@ -95,5 +98,9 @@ class SettingsActivity : LocalizationActivity() {
 
     fun changeLanguageRu() {
         setLanguage("ru")
+    }
+
+    fun changeLanguageEu() {
+        setLanguage("eu")
     }
 }
