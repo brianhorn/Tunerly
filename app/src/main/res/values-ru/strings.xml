@@ -42,7 +42,7 @@
         <item>4 струн</item>
         <item>5 струн</item>
         <item>6 струн</item>
-        <item>Drop D</item>
+        <item>Drop-D</item>
         <item>D Стандарт</item>
         <item>Drop C</item>
     </string-array>
@@ -60,6 +60,7 @@
         <item>английский</item>
         <item>Немецкий</item>
         <item>Русский</item>
+        <item>Баскский</item>
     </string-array>
     <string name="switch_theme">"тёмная"</string>
     <string name="popup_title">Информация</string>

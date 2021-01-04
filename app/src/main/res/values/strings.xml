@@ -46,7 +46,7 @@
         <item>4 String</item>
         <item>5 String</item>
         <item>6 String</item>
-        <item>Drop D</item>
+        <item>Drop-D</item>
         <item>D Standard</item>
         <item>Drop C</item>
     </string-array>
@@ -87,12 +87,14 @@
         <item>English</item>
         <item>German</item>
         <item>Russian</item>
+        <item>Basque</item>
     </string-array>
 
     <string-array name="language_data">
         <item>en</item>
         <item>de</item>
         <item>ru</item>
+        <item>eu</item>
     </string-array>
 
 </resources>

@@ -43,7 +43,7 @@
         <item>4 Saiten</item>
         <item>5 Saiten</item>
         <item>6 Saiten</item>
-        <item>Drop D</item>
+        <item>Drop-D</item>
         <item>D Standard</item>
         <item>Drop C</item>
     </string-array>
@@ -61,6 +61,7 @@
         <item>Englisch</item>
         <item>Deutsch</item>
         <item>Russisch</item>
+        <item>Baskisch</item>
     </string-array>
     <string name="switch_theme">Dark Theme</string>
     <string name="popup_title">Info</string>
