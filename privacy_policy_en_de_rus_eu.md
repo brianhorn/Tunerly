@@ -65,3 +65,22 @@ Tunerly необходимо разрешение на доступ к микр�
 будущем. Этот документ будет постоянно обновляться.
 
 Последнее обновление 02.12.2020
+
+## EU
+
+Tunerly-k zure pribatutasuna oso serio hartzen du. Pribatutasun gidalerro honek behar duzun guztia azaltzen dizu
+zure datuak nola erabiltzen diren jakiteko.
+
+Tunerly-k zure gailuko mikrofonorako sarbidea behar du behar bezala funtzionatzeko.
+Grabatutako audioa zure telefonoan bakarrik erabiltzen da eta ez da inorekin partekatzen,
+garatzailea barne. Zure audioa denbora errealean prozesatzen da eta ez da epe luzera gordetzen.
+Ez da ez biltegiratzen ez prozesatzen zure telefonoa ez den inongo gailu edo zerbitzutan.
+
+Audio grabazioaz gain, goian azaltzen den bezala erabiltzen dena, Tunerly-k ez du beste edozein datu pertsonalik monitorizatzen,
+erabiltzen, biltzen, transmititzen, banatzen edo saltzen.
+
+Pribatutasun gidalerro hau bezala, Tunerly librea eta kode irekikoa da. Iragarkirik ere ez du.
+
+Egungo pribatutasun gidalerroa aldatu egin daiteke; dokumentu hau eguneratuta egongo da.
+
+Azken eguneratzea: 2020ko abenduaren 3a

@@ -1,0 +1,16 @@
+Tunerly is a minimalistic, multi-language pitch tuning app which can be used for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. Currently supported languages are English, German and Russian. Tunerly also has the option of switching between dark and light theme.
+
+Supported tunings are:
+
+* Guitar: Standard, 7 string, 8 string, E-Flat, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
+* Bass: 4 string, 5 string, 6 string, Drop D, D Standard, Drop C
+* Ukulele: C (Standard), D (Traditional), Baritone, Bass
+
+
+Tunerly afinatzaile aplikazio minimalista eta eleanitza da, gitarra, baxua edo ukelelea hainbat disposiziotan afinatzeko erabil daitekeena. Afinatzaile kromatikoa ere badu. Gaur egun onartzen diren hizkuntzak ingelesa, alemana, errusiera eta euskara dira. Gai ilun eta argien artean aldatzeko aukera ere badu.
+
+Hauek dira dituen disposizioak:
+
+* Gitarra: estandarra, 7 soka, 8 soka, E-bemola, Drop D, Drop Db, Drop D bikoitza, DADGAD, D irekia, A irekia, E irekia, G irekia
+* Baxua: 4 soka, 5 soka, 6 soka, Drop D, D estandarra, Drop C
+* Ukulelea: C (estandarra), D (tradizionala), Baritonoa, Baxua
