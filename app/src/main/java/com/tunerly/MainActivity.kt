@@ -80,6 +80,9 @@ class MainActivity : LocalizationActivity(), MyCallback {
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
 
+        // keep screen on
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         // initializing instrument spinner
         instrumentSpinner = findViewById(R.id.instrument_spinner)
         ArrayAdapter.createFromResource(
