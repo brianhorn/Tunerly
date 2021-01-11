@@ -190,7 +190,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
             AudioDispatcherFactory.fromDefaultMicrophone(sampleRate, bufferSize, recordOverlaps)
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz: Float = res.pitch
-            val probability : Float = res.probability
+            val probability: Float = res.probability
             if (pitchInHz > -1) {
                 runOnUiThread { processing.tune(pitchInHz, probability)}
             }

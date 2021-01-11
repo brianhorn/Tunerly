@@ -94,9 +94,6 @@ class PitchProcessing(callback: MyCallback?) {
 
     fun tune(pitchInHz: Float, probability: Float) {
         if (MainActivity.CurInstrument.curInstrument == (myCallback as MainActivity).getString(R.string.chromatic)) {
-
-//        if ((MainActivity.CurInstrument.curInstrument == "Chromatic") || (MainActivity.CurInstrument.curInstrument == "Chromatisch") || (MainActivity.CurInstrument.curInstrument == "Хроматический")) {
-            closestNote(pitchInHz)
             if (probability > 0.92) {
                 myCallback?.updateNote(closestNote(pitchInHz))
                 tuningDirection(pitchInHz, closestPitch(pitchInHz))
@@ -115,7 +112,7 @@ class PitchProcessing(callback: MyCallback?) {
         }
     }
 
-    private fun tuningDirection(curPitch : Float, toPitch : Float) {
+    private fun tuningDirection(curPitch: Float, toPitch: Float) {
         var tuneUp = true
         var tuneDown = true
         // calculate interval in cents from hz given
@@ -150,7 +147,7 @@ class PitchProcessing(callback: MyCallback?) {
      * determine which string current note is closest to
      * @return Float (Frequency in Hz)
      */
-    private fun closestString(pitchInHz: Float, tuning: FloatArray) : Float {
+    private fun closestString(pitchInHz: Float, tuning: FloatArray): Float {
         var difference = abs(tuning[0] - pitchInHz)
         var idx = 0
         for (c in 1 until tuning.size) {
@@ -168,7 +165,7 @@ class PitchProcessing(callback: MyCallback?) {
      * therefore formula to derive interval between two pitches:
      * i = 12 * log2 * (pitch(i)/pitch(o))
      */
-    private fun closestNote(pitchInHz: Float) : String {
+    private fun closestNote(pitchInHz: Float): String {
         (myCallback as MainActivity).noteSize()
         val i = (round(log2(pitchInHz / 440) * 12)).toInt()
         // floorMod implementation to prevent ArrayIndexOutOfBoundException
