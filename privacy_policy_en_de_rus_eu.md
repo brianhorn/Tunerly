@@ -18,6 +18,22 @@ The current Privacy Policy may be changed, This document will be kept up to date
 
 Last updated: December 03, 2020
 
+## FI
+Tunerly ottaa yksityisyytesi erittäin vakavasti. Tämä tietosuojakäytäntö selittää kaiken 
+tarvitsemasi, tietääksesi kuinka tietojasi käsitellän.
+
+Tunerly tarvitsee pääsyn laitteesi mikrofoniin toimiakseen oikein. Nauhoitettua ääntä käytetään 
+vain laitteellasi paikallisesti, eikä sitä jaeta kenellekkään, mukaan lukien kehittäjät. Äänesi 
+käsitellään reaaliajassa eikä sitä tallenneta pitemmäksi aikaa.
+Sitä ei tallenneta tai käsitellä missään muussa laitteessa tai palvelussa, kuin omalla laitteellasi.
+
+Äänitallennuksen lisäksi, jota käytetään edellä kuvatulla tavalla, Tunerly ei seuraa, kerää, 
+jaa tai myy muita henkilötietoja.
+
+Tätä tietosuojakäytäntöä voidaan muuttaa. Tätä asiakirjaa pidetään ajan tasalla.
+
+Päivitetty viimeksi: 9. toukokuuta 2021
+
 ## DE
 
 Tunerly nimmt Ihre Privatsphäre sehr ernst. Diese Datenschutz-Bestimmung erklärt Ihnen
