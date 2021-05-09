@@ -1,4 +1,4 @@
-Tunerly is a minimalistic, multi-language pitch tuning app which can be used for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. Currently supported languages are English, German, Russian and Basque. Tunerly also has the option of switching between dark and light theme.
+Tunerly is a minimalistic, multi-language pitch tuning app which can be used for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. Currently supported languages are English, Finnish, German, Russian and Basque. Tunerly also has the option of switching between dark and light theme.
 
 Supported tunings are:
 
