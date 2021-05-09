@@ -58,7 +58,7 @@
     </string-array>
 
     <!-- Language Preference -->
-    <string-array name="language_array translatable="false">
+    <string-array name="language_array" translatable="false">
         <item>Basque</item>
         <item>English</item>
         <item>Finnish</item>
