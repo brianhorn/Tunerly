@@ -1,0 +1,102 @@
+<resources>
+    <!-- General -->
+    <string name="app_name" translatable="false">Tunerly</string>
+    <string name="pluck_a_string">Soita</string>
+    <string name="tune_down">Viritä matalammaksi</string>
+    <string name="tune_up">Viritä korkeammaksi</string>
+    <string name="annotation" translatable="false">\?</string>
+    <string name="logo" translatable="false">logo</string>
+    <string name="switch_theme">Tumma teema</string>
+    <string name="preference_title">Kieli</string>
+    <string name="popup"><![CDATA[
+        <p>Sininen nuoli: Viritä suuntaan, johon nuoli osoittaa</p><br>
+        Molemmat nuolet vihreitä: Olet vireessä</p>
+    ]]></string>
+    <string name="popup_title">Ohje</string>
+    <string name="ok">Selvä</string>
+
+    <!-- Settings fields -->
+    <string name="settings">Asetukset</string>
+    <string name="about">Tietoja</string>
+
+    <!-- Instrument Spinner-->
+    <string-array name="instruments_array">
+        <item>@string/guitar</item>
+        <item>@string/bass</item>
+        <item>@string/ukulele</item>
+        <item>@string/chromatic</item>
+    </string-array>
+
+    <!-- Tunings -->
+    <string-array name="tuning_array_guitar">
+        <item>Standardi</item>
+        <item>7 Kielinen</item>
+        <item>8 Kielinen</item>
+        <item>E-Flat</item>
+        <item>Drop D</item>
+        <item>Drop Db</item>
+        <item>Double Drop D</item>
+        <item> DADGAD</item>
+        <item>Avoin D</item>
+        <item>Avoin A</item>
+        <item>Avoin E</item>
+        <item>Avoin G</item>
+    </string-array>
+    <string-array name="tuning_array_bass">
+        <item>4 Kielinen</item>
+        <item>5 Kielinen</item>
+        <item>6 Kielinen</item>
+        <item>Drop-D</item>
+        <item>D Standardi</item>
+        <item>Drop C</item>
+    </string-array>
+    <string-array name="tuning_array_ukulele">
+        <item>C (Standardi)</item>
+        <item>D (Perinteinen)</item>
+        <item>Baritoni</item>
+        <item>Basso</item>
+    </string-array>
+    <string-array name="chromatic">
+        <item> </item>
+    </string-array>
+
+    <!-- Settings -->
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+    <string name="dark_theme" translatable="false">dark_theme</string>
+
+    <!-- About -->
+    <string name="title_activity_about" translatable="false">AboutActivity</string>
+    <string name="contact">Yhteystiedot</string>
+    <string name="contact_text">Jos sinulla on kysyttävää, ehdotuksia tai ongelmia ilmoitattevaksi, voit laittaa sähköpostia osoitteeseen</string>
+    <string name="contact_email" translatable="false">tunerlyapp@gmail.com</string>
+    <string name="privacy_policy">Tietosuojakäytäntö</string>
+    <string name="privacy_policy_text">Tietosuojakäytäntö löytyy täältä</string>
+    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy_en_de_rus_eu.md</string>
+    <string name="github" translatable="false">Github</string>
+    <string name="github_text">Tunerly on avoimen lähdekoodin ohjelma. Löydät projektin Githubista täältä</string>
+    <string name="github_link" translatable="false">https://github.com/brianhorn/Tunerly</string>
+    <string name="version">Versio</string>
+    <string name="guitar">Kitara</string>
+    <string name="bass">Basso</string>
+    <string name="ukulele">Ukulele</string>
+    <string name="chromatic">Kromaattinen</string>
+    <string name="language_preference" translatable="false">language_preference</string>
+
+    <!-- Language Preference -->
+    <string-array name="language_array">
+        <item>Basque</item>
+        <item>English</item>
+        <item>Finnish</item>
+        <item>German</item>
+        <item>Russian</item>
+    </string-array>
+
+    <string-array name="language_data">
+        <item>eu</item>
+        <item>en</item>
+        <item>fi</item>
+        <item>de</item>
+        <item>ru</item>
+    </string-array>
+
+</resources>
