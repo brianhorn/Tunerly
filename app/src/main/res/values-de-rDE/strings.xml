@@ -57,12 +57,23 @@
         <item> </item>
     </string-array>
 
-    <string-array name="language_array">
-        <item>Englisch</item>
-        <item>Deutsch</item>
-        <item>Russisch</item>
-        <item>Baskisch</item>
+    <!-- Language Preference -->
+    <string-array name="language_array translatable="false"">
+        <item>Basque</item>
+        <item>English</item>
+        <item>Finnish</item>
+        <item>German</item>
+        <item>Russian</item>
     </string-array>
+
+    <string-array name="language_data" translatable="false">
+        <item>eu</item>
+        <item>en</item>
+        <item>fi</item>
+        <item>de</item>
+        <item>ru</item>
+    </string-array>
+
     <string name="switch_theme">Dark Theme</string>
     <string name="popup_title">Info</string>
     <string name="ok">OK</string>
