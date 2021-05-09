@@ -1,0 +1,7 @@
+Tunerly on yksinkertainen viritin, jolla voidaan virittää kitara, basso tai ukulele erilaisiin vireisiin. Se sisältää myös kromaattisen virittimen. On monikielinen, tällä hetkellä tuetut kielet ovat suomi, englanti, saksa, venäjä ja baski. Tunerly tukee myös vaaleaa sekä tummaa tilaa.
+
+Tuetut vireet:
+
+* Kitara: standardi, 7 kielinen, 8 kielinen, E-flat, drop D, drop Db, double drop D, DADGAD, avoin D, avoin A, avoin E, avoin G
+* Basso: 4 kielinen, 5 kielinen, 6 kielinen, drop D, D standardi, drop C
+* Ukulele: C (standardi), D (perinteinen), baritoni, basso
