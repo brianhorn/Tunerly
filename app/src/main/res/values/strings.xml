@@ -83,7 +83,7 @@
     <string name="language_preference" translatable="false">language_preference</string>
 
     <!-- Language Preference -->
-    <string-array name="language_array">
+    <string-array name="language_array" translatable="false">
         <item>Basque</item>
         <item>English</item>
         <item>Finnish</item>
@@ -91,7 +91,7 @@
         <item>Russian</item>
     </string-array>
 
-    <string-array name="language_data">
+    <string-array name="language_data" translatable="false">
         <item>eu</item>
         <item>en</item>
         <item>fi</item>
