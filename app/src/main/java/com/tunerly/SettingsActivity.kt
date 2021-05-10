@@ -60,7 +60,7 @@ class SettingsActivity : LocalizationActivity() {
                     } else {
                         preferenceManager.sharedPreferences.edit()
                             .putBoolean(getString(R.string.dark_theme), false).apply()
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     }
                     true
                 }

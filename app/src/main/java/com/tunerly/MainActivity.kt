@@ -38,9 +38,9 @@ class MainActivity : LocalizationActivity(), MyCallback {
     private lateinit var binding: ActivityMainBinding
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
-    private var bufferSize: Int = 4096
     private val recordOverlaps = 3072
     private val localizationDelegate = LocalizationApplicationDelegate()
+    private var bufferSize: Int = 4096
     private lateinit var instrumentSpinner: Spinner
     private lateinit var tuningSpinner: Spinner
 
@@ -141,7 +141,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Do nothing.
+
             }
         }
 
