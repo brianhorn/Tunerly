@@ -9,14 +9,17 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.example.tuner.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.tuner.databinding.ActivitySettingsBinding
 
 
 class SettingsActivity : LocalizationActivity() {
+    private lateinit var binding: ActivitySettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         if (savedInstanceState == null) {
             supportFragmentManager
@@ -24,7 +27,7 @@ class SettingsActivity : LocalizationActivity() {
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.settings)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

@@ -4,20 +4,24 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.example.tuner.R
-import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.activity_main.toolbar
+import com.example.tuner.databinding.ActivityAboutBinding
+
 
 class AboutActivity : LocalizationActivity() {
+    private lateinit var binding: ActivityAboutBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.about)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val versionName: String = packageManager.getPackageInfo(packageName, 0).versionName
-        versionTextView.text = versionName
+        binding.versionTextView.text = versionName
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

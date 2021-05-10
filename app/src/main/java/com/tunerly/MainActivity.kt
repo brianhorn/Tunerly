@@ -31,10 +31,11 @@ import be.tarsos.dsp.pitch.PitchProcessor
 import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.example.tuner.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.tuner.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : LocalizationActivity(), MyCallback {
+    private lateinit var binding: ActivityMainBinding
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private var bufferSize: Int = 4096
@@ -77,8 +78,10 @@ class MainActivity : LocalizationActivity(), MyCallback {
         }
 
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
         setTheme(R.style.AppTheme)
-        setContentView(R.layout.activity_main)
+        setContentView(view)
 
         // keep screen on
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -166,7 +169,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
         }
 
         // menu
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         // annotation dialog
@@ -218,6 +221,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             1234 -> {
                 // If request is cancelled, the result arrays are empty.
@@ -282,7 +286,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
                 R.drawable.ic_play_arrow
             )!!
         )
-        up.setImageDrawable(drawableUp)
+        binding.up.setImageDrawable(drawableUp)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             DrawableCompat.setTint(drawableUp, ContextCompat.getColor(this, colorTop))
 
@@ -299,7 +303,7 @@ class MainActivity : LocalizationActivity(), MyCallback {
                 R.drawable.ic_play_arrow
             )!!
         )
-        down.setImageDrawable(drawableDown)
+        binding.down.setImageDrawable(drawableDown)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             DrawableCompat.setTint(drawableDown, ContextCompat.getColor(this, colorBottom))
 
@@ -312,17 +316,17 @@ class MainActivity : LocalizationActivity(), MyCallback {
     }
 
     override fun updateNote(note: String?) {
-        noteText.gravity = Gravity.CENTER
-        noteText.text = note
+        binding.noteText.gravity = Gravity.CENTER
+        binding.noteText.text = note
     }
 
     // set size of note displayed
     fun noteSize() {
-        if (noteText.text in arrayOf(
+        if (binding.noteText.text in arrayOf(
                 "A", "A#", "Bb", "B", "C", "C#", "Db", "D",
                 "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"
             )) {
-            noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 280F)
+            binding.noteText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 280F)
         }
     }
 }
