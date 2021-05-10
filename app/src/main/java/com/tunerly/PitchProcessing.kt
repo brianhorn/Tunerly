@@ -33,63 +33,97 @@ class PitchProcessing(callback: MyCallback?) {
         "Standard" to TuningData.GuitarStandard,
         "Стандарт" to TuningData.GuitarStandard,
         "Estandarra" to TuningData.GuitarStandard,
+        "Standardi" to TuningData.GuitarStandard,
+
         "7 String" to TuningData.GuitarSeven,
         "7 Saiten" to TuningData.GuitarSeven,
         "7 струн" to TuningData.GuitarSeven,
         "7 soka" to TuningData.GuitarSeven,
+        "7 Kielinen" to TuningData.GuitarSeven,
+
         "8 String" to TuningData.GuitarEight,
         "8 Saiten" to TuningData.GuitarEight,
         "8 струн" to TuningData.GuitarEight,
         "8 soka" to TuningData.GuitarEight,
+        "8 Kielinen" to TuningData.GuitarEight,
+
         "E-Flat" to TuningData.GuitarEFlat,
         "Eb" to TuningData.GuitarEFlat,
         "E-bemol" to TuningData.GuitarEFlat,
+
         "Drop D" to TuningData.GuitarDropD,
+
         "Drop Db" to TuningData.GuitarDropDb,
+
         "Double Drop D" to TuningData.GuitarDoubleDropD,
         "Drop D bikoitza" to TuningData.GuitarDoubleDropD,
+
         "DADGAD" to TuningData.GuitarDADGAD,
+
         "Open D" to TuningData.GuitarOpenD,
+        "Avoin D" to TuningData.GuitarOpenD,
         "D irekia" to TuningData.GuitarOpenD,
+
         "Open A" to TuningData.GuitarOpenA,
+        "Avoin A" to TuningData.GuitarOpenA,
         "A irekia" to TuningData.GuitarOpenA,
+
         "Open E" to TuningData.GuitarOpenE,
+        "Avoin E" to TuningData.GuitarOpenE,
         "E irekia" to TuningData.GuitarOpenE,
+
         "Open G" to TuningData.GuitarOpenG,
+        "Avoin G" to TuningData.GuitarOpenG,
         "G irekia" to TuningData.GuitarOpenG,
 
         "4 String" to TuningData.BassStandard4,
         "4 Saiten" to TuningData.BassStandard4,
         "4 струн" to TuningData.BassStandard4,
         "4 soka" to TuningData.BassStandard4,
+        "4 Kielinen" to TuningData.BassStandard4,
+
         "5 String" to TuningData.BassStandard5,
         "5 Saiten" to TuningData.BassStandard5,
         "5 струн" to TuningData.BassStandard5,
         "5 soka" to TuningData.BassStandard5,
+        "5 Kielinen" to TuningData.BassStandard4,
+
         "6 String" to TuningData.BassStandard6,
         "6 Saiten" to TuningData.BassStandard6,
         "6 струн" to TuningData.BassStandard6,
         "6 soka" to TuningData.BassStandard6,
+        "6 Kielinen" to TuningData.BassStandard4,
+
         "Drop-D" to TuningData.BassDropD,
+
         "D Standard" to TuningData.BassDStandard,
         "D Стандарт" to TuningData.BassDStandard,
         "D estandarra" to TuningData.BassDStandard,
+        "D Standardi" to TuningData.BassDStandard,
+
         "Drop C" to TuningData.BassDropC,
 
         "C (Standard)" to TuningData.UkuleleStandard,
         "C (Стандарт)" to TuningData.UkuleleStandard,
         "C (estandarra)" to TuningData.UkuleleStandard,
+        "C (Standardi)" to TuningData.UkuleleStandard,
+
         "D (Traditional)" to TuningData.UkuleleTraditional,
         "D (Traditionell)" to TuningData.UkuleleTraditional,
         "D (Традиционный)" to TuningData.UkuleleTraditional,
         "D (tradizionala)" to TuningData.UkuleleTraditional,
+        "D (Perinteinen)" to TuningData.UkuleleTraditional,
+
         "Baritone" to TuningData.UkuleleBaritone,
         "Bariton" to TuningData.UkuleleBaritone,
         "Баритон" to TuningData.UkuleleBaritone,
         "Baritonoa" to TuningData.UkuleleBaritone,
+        "Baritoni" to TuningData.UkuleleBaritone,
+
         "Bass" to TuningData.UkuleleBass,
         "бас" to TuningData.UkuleleBass,
-        "Baxua" to TuningData.UkuleleBass
+        "Baxua" to TuningData.UkuleleBass,
+        "Basso" to TuningData.UkuleleBass
     )
 
     fun tune(pitchInHz: Float, probability: Float) {
