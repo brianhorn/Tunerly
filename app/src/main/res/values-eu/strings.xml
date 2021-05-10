@@ -83,18 +83,20 @@
     <string name="language_preference" translatable="false">language_preference</string>
 
     <!-- Language Preference -->
-    <string-array name="language_array">
-        <item>Ingelesa</item>
-        <item>Alemaniera</item>
-        <item>Errusiera</item>
-        <item>Euskara</item>
+    <string-array name="language_array" translatable="false">
+        <item>Basque</item>
+        <item>English</item>
+        <item>Finnish</item>
+        <item>German</item>
+        <item>Russian</item>
     </string-array>
 
-    <string-array name="language_data">
+    <string-array name="language_data" translatable="false">
+        <item>eu</item>
         <item>en</item>
+        <item>fi</item>
         <item>de</item>
         <item>ru</item>
-        <item>eu</item>
     </string-array>
 
 </resources>
