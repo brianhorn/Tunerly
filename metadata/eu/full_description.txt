@@ -1,4 +1,4 @@
-Tunerly afinatzaile aplikazio minimalista eta eleanitza da, gitarra, baxua edo ukelelea hainbat disposiziotan afinatzeko erabil daitekeena. Afinatzaile kromatikoa ere badu. Gaur egun onartzen diren hizkuntzak ingelesa, alemana, errusiera eta euskara dira. Gai ilun eta argien artean aldatzeko aukera ere badu.
+Tunerly afinatzaile aplikazio minimalista eta eleanitza da, gitarra, baxua edo ukelelea hainbat disposiziotan afinatzeko erabil daitekeena. Afinatzaile kromatikoa ere badu. Gaur egun onartzen diren hizkuntzak ingelesa, finlandiera, alemana, errusiera eta euskara dira. Gai ilun eta argien artean aldatzeko aukera ere badu.
 
 Hauek dira dituen disposizioak:
 

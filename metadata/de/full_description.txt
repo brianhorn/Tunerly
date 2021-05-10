@@ -1,4 +1,4 @@
-Tunerly ist ein minimalistisches, mehrsprachiges Stimmgerät mit dem Du deine Gitarre, dein Bass oder deine Ukulele in verschiedenen Tonlagen stimmen kannst. Ein chromatisches Stimmgerät ist auch vorhanden. Die momentan unterstützten Sprachen sind englisch, deutsch, russisch und baskisch. Tunerly verfügt über einen dark- und light-mode.
+Tunerly ist ein minimalistisches, mehrsprachiges Stimmgerät mit dem Du deine Gitarre, dein Bass oder deine Ukulele in verschiedenen Tonlagen stimmen kannst. Ein chromatisches Stimmgerät ist auch vorhanden. Die momentan unterstützten Sprachen sind englisch, deutsch, finnisch, russisch und baskisch. Tunerly verfügt über einen dark- und light-mode.
 
 Verfügbare Stimmungen sind:
 

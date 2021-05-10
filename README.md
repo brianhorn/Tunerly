@@ -11,7 +11,7 @@
 
 
 Tunerly is suited for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. 
-Currently supported languages are: English, German, Russian and Basque.
+Currently supported languages are: English, Finnish, German, Russian and Basque.
 
 ## Screenshots
 
