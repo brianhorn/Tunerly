@@ -41,6 +41,7 @@
         <item>Avoin A</item>
         <item>Avoin E</item>
         <item>Avoin G</item>
+        <item>Avoin B</item>
     </string-array>
     <string-array name="tuning_array_bass">
         <item>4 Kielinen</item>

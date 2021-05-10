@@ -14,6 +14,7 @@ enum class TuningData(vararg f: Float) {
     GuitarOpenA(82.41F, 110.00F, 138.59F, 164.81F, 220.00F, 329.63F),
     GuitarOpenE(82.41F, 123.47F, 164.81F, 207.65F, 246.94F, 329.63F),
     GuitarOpenG(77.78F, 98.00F, 146.83F, 196.00F, 246.94F, 293.66F),
+    GuitarOpenB(61.74F, 92.50F, 123.47F, 185.00F, 246.94F, 311.13F),
     // Bass Tunings
     BassStandard4(41.20F, 55.00F, 73.42F, 98.00F),
     BassStandard5(30.87F, 41.20F, 55.00F, 73.42F, 98.00F),

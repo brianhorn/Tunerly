@@ -76,6 +76,10 @@ class PitchProcessing(callback: MyCallback?) {
         "Avoin G" to TuningData.GuitarOpenG,
         "G irekia" to TuningData.GuitarOpenG,
 
+        "Open B" to TuningData.GuitarOpenB,
+        "Avoin B" to TuningData.GuitarOpenB,
+        "B irekia" to TuningData.GuitarOpenB,
+
         "4 String" to TuningData.BassStandard4,
         "4 Saiten" to TuningData.BassStandard4,
         "4 струн" to TuningData.BassStandard4,

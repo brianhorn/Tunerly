@@ -37,6 +37,7 @@
         <item>Open A</item>
         <item>Open E</item>
         <item>Open G</item>
+        <item>Open B</item>
     </string-array>
     <string-array name="tuning_array_bass">
         <item>4 струн</item>
