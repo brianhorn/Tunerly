@@ -44,6 +44,8 @@ Currently supported languages are: English, Finnish, German, Russian and Basque.
     * Open E
     
     * Open G
+
+    * Open B
     
   * Bass
   
