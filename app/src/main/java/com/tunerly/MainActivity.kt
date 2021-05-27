@@ -33,9 +33,12 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.example.tuner.R
 import com.example.tuner.databinding.ActivityMainBinding
 import java.util.*
+import kotlin.math.min
 
 class MainActivity : LocalizationActivity(), MyCallback {
     private lateinit var binding: ActivityMainBinding
+    private val prefLastInstrument = "last_instrument"
+    private val prefLastTuning = "last_tuning"
     private val processing = PitchProcessing(this@MainActivity)
     private val sampleRate = 44100
     private val recordOverlaps = 3072
@@ -66,11 +69,9 @@ class MainActivity : LocalizationActivity(), MyCallback {
             )
         }
 
-        // save current state of dark mode
-        val isNightMode: Boolean = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-            "dark_theme",
-            false
-        )
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        // load current state of dark mode
+        val isNightMode: Boolean = preferences.getBoolean("dark_theme", false)
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
@@ -185,6 +186,16 @@ class MainActivity : LocalizationActivity(), MyCallback {
         if (permission == PermissionChecker.PERMISSION_GRANTED) {
             audioProcessing()
         }
+
+        // load last state of the spinners
+        instrumentSpinner.setSelection(
+            min(preferences.getInt(prefLastInstrument, 0), instrumentSpinner.adapter.count - 1))
+        instrumentSpinner.post { // Give time to the instrumentSpinner to trigger its onItemSelected
+            tuningSpinner.post { // Give time to the to tuningSpinner to actually be updated
+                tuningSpinner.setSelection(
+                    min(preferences.getInt(prefLastTuning, 0), tuningSpinner.adapter.count - 1))
+            }
+        }
     }
 
     private fun audioProcessing() {
@@ -241,6 +252,14 @@ class MainActivity : LocalizationActivity(), MyCallback {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         return true
+    }
+
+    override fun onStop() {
+        super.onStop()
+        PreferenceManager.getDefaultSharedPreferences(this).edit()
+            .putInt(prefLastInstrument, instrumentSpinner.selectedItemPosition)
+            .putInt(prefLastTuning, tuningSpinner.selectedItemPosition)
+            .apply()
     }
 
     // Items in menu
