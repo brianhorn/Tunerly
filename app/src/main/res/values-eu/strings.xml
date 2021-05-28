@@ -1,7 +1,7 @@
 <resources>
     <!-- General -->
     <string name="app_name" translatable="false">Tunerly</string>
-    <string name="pluck_a_string">Jo+</string>
+    <string name="pluck_a_string">Jo</string>
     <string name="tune_down">Jaitsi</string>
     <string name="tune_up">Igo</string>
     <string name="annotation" translatable="false">\?</string>
