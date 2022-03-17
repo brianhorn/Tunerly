@@ -20,6 +20,7 @@
         <item>Гитара</item>
         <item>бас</item>
         <item>Укулеле</item>
+        <item>Cuatro</item>
         <item>Хроматический</item>
     </string-array>
 
@@ -53,6 +54,9 @@
         <item>Баритон</item>
         <item>бас</item>
     </string-array>
+    <string-array name="tuning_array_cuatro">
+        <item>Стандарт</item>
+    </string-array>
     <string-array name="chromatic">
         <item> </item>
     </string-array>
@@ -64,6 +68,7 @@
         <item>Finnish</item>
         <item>German</item>
         <item>Russian</item>
+        <item>Spanish</item>
     </string-array>
 
     <string-array name="language_data" translatable="false">
@@ -72,6 +77,7 @@
         <item>fi</item>
         <item>de</item>
         <item>ru</item>
+        <item>es</item>
     </string-array>
 
     <string name="switch_theme">"тёмная"</string>
@@ -81,6 +87,7 @@
     <string name="guitar">Гитара</string>
     <string name="bass">бас</string>
     <string name="ukulele">Укулеле</string>
+    <string name="cuatro">Cuatro</string>
     <string name="chromatic">Хроматический</string>
     <string name="version">версия</string>
 </resources>
