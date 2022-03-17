@@ -24,6 +24,7 @@
         <item>@string/guitar</item>
         <item>@string/bass</item>
         <item>@string/ukulele</item>
+        <item>@string/cuatro</item>
         <item>@string/chromatic</item>
     </string-array>
 
@@ -57,6 +58,9 @@
         <item>Baritone</item>
         <item>Bass</item>
     </string-array>
+    <string-array name="tuning_array_cuatro">
+        <item>Standard</item>
+    </string-array>
     <string-array name="chromatic">
         <item> </item>
     </string-array>
@@ -80,6 +84,7 @@
     <string name="guitar">Guitar</string>
     <string name="bass">Bass</string>
     <string name="ukulele">Ukulele</string>
+    <string name="cuatro">Cuatro</string>
     <string name="chromatic">Chromatic</string>
     <string name="language_preference" translatable="false">language_preference</string>
 
@@ -90,6 +95,7 @@
         <item>Finnish</item>
         <item>German</item>
         <item>Russian</item>
+        <item>Spanish</item>
     </string-array>
 
     <string-array name="language_data" translatable="false">
@@ -98,6 +104,7 @@
         <item>fi</item>
         <item>de</item>
         <item>ru</item>
+        <item>es</item>
     </string-array>
 
 </resources>
