@@ -54,12 +54,12 @@ class SettingsActivity : LocalizationActivity() {
                     var isChecked = false
                     if (newValue is Boolean) isChecked = newValue
                     if (isChecked) {
-                        preferenceManager.sharedPreferences.edit()
-                            .putBoolean(getString(R.string.dark_theme), true).apply()
+                        preferenceManager.sharedPreferences?.edit()
+                            ?.putBoolean(getString(R.string.dark_theme), true)?.apply()
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     } else {
-                        preferenceManager.sharedPreferences.edit()
-                            .putBoolean(getString(R.string.dark_theme), false).apply()
+                        preferenceManager.sharedPreferences?.edit()
+                            ?.putBoolean(getString(R.string.dark_theme), false)?.apply()
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     }
                     true
