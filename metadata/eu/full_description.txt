@@ -1,7 +1,8 @@
-Tunerly afinatzaile aplikazio minimalista eta eleanitza da, gitarra, baxua edo ukelelea hainbat disposiziotan afinatzeko erabil daitekeena. Afinatzaile kromatikoa ere badu. Gaur egun onartzen diren hizkuntzak ingelesa, finlandiera, alemana, errusiera eta euskara dira. Gai ilun eta argien artean aldatzeko aukera ere badu.
+Tunerly afinatzaile aplikazio minimalista eta eleanitza da, gitarra, baxua, ukelelea  edo cuatro hainbat disposiziotan afinatzeko erabil daitekeena. Afinatzaile kromatikoa ere badu. Gaur egun onartzen diren hizkuntzak ingelesa, alemana, errusiera, finlandiera, gaztelania eta euskara dira. Gai ilun eta argien artean aldatzeko aukera ere badu.
 
 Hauek dira dituen disposizioak:
 
-* Gitarra: estandarra, 7 soka, 8 soka, E-bemola, Drop D, Drop Db, Drop D bikoitza, DADGAD, D irekia, A irekia, E irekia, G irekia
+* Gitarra: estandarra, 7 soka, 8 soka, E-bemola, Koko sävy alempi, Drop D, Drop Db, Drop D bikoitza, DADGAD, D irekia, A irekia, E irekia, G irekia, B irekia
 * Baxua: 4 soka, 5 soka, 6 soka, Drop D, D estandarra, Drop C
 * Ukulelea: C (estandarra), D (tradizionala), Baritonoa, Baxua
+* Cuatro: C-estandarra, D-estandarra
