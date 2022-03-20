@@ -1,1 +1,1 @@
-A minimalistic pitch tuning app for Guitar, Bass and Ukulele.
+A minimalistic pitch tuning app for Guitar, Bass, Ukulele and Cuatro
