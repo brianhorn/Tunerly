@@ -1,0 +1,110 @@
+<resources>
+    <!-- General -->
+    <string name="app_name" translatable="false">Tunerly</string>
+    <string name="pluck_a_string">Toca</string>
+    <string name="tune_down">Baja la afinación</string>
+    <string name="tune_up">Sube la afinación</string>
+    <string name="annotation" translatable="false">\?</string>
+    <string name="logo" translatable="false">logo</string>
+    <string name="switch_theme">Tema oscuro</string>
+    <string name="preference_title">Idioma</string>
+    <string name="popup"><![CDATA[
+        <p>Blue arrow: Tune in the direction the arrow points to</p><br>
+        Both arrows green: You are in tune</p>
+    ]]></string>
+    <string name="popup_title">Información</string>
+    <string name="ok">OK</string>
+
+    <!-- Settings fields -->
+    <string name="settings">Ajustes</string>
+    <string name="about">Acerca de</string>
+
+    <!-- Instrument Spinner-->
+    <string-array name="instruments_array">
+        <item>@string/guitar</item>
+        <item>@string/bass</item>
+        <item>@string/ukulele</item>
+        <item>@string/cuatro</item>
+        <item>@string/chromatic</item>
+    </string-array>
+
+    <!-- Tunings -->
+    <string-array name="tuning_array_guitar">
+        <item>Standard</item>
+        <item>7 String</item>
+        <item>8 String</item>
+        <item>E-Flat</item>
+        <item>Drop D</item>
+        <item>Drop Db</item>
+        <item>Double Drop D</item>
+        <item> DADGAD</item>
+        <item>Open D</item>
+        <item>Open A</item>
+        <item>Open E</item>
+        <item>Open G</item>
+        <item>Open B</item>
+    </string-array>
+    <string-array name="tuning_array_bass">
+        <item>4 String</item>
+        <item>5 String</item>
+        <item>6 String</item>
+        <item>Drop-D</item>
+        <item>D Standard</item>
+        <item>Drop C</item>
+    </string-array>
+    <string-array name="tuning_array_ukulele">
+        <item>C (Standard)</item>
+        <item>D (Tradicional)</item>
+        <item>Baritone</item>
+        <item>Bass</item>
+    </string-array>
+  <string-array name="tuning_array_cuatro">
+        <item>Tradicional</item>
+    </string-array>
+    <string-array name="chromatic">
+        <item> </item>
+    </string-array>
+
+    <!-- Settings -->
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+    <string name="dark_theme" translatable="false">dark_theme</string>
+
+    <!-- About -->
+    <string name="title_activity_about" translatable="false">AboutActivity</string>
+    <string name="contact">Contacto</string>
+    <string name="contact_text">Si tiene alguna pregunta, sugerencia o desea reportar algún error, puede contactarme por </string>
+    <string name="contact_email" translatable="false">tunerlyapp@gmail.com</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="privacy_policy_text">Puede encontrar la política de privacidad aquí</string>
+    <string name="privacy_policy_link" translatable="false">https://github.com/brianhorn/Tunerly/blob/master/privacy_policy.md</string>
+    <string name="github" translatable="false">Github</string>
+    <string name="github_text">Tunerly es una aplicación de Código Abierto. Puede encontrar el proyecto en GitHub aquí</string>
+    <string name="github_link" translatable="false">https://github.com/brianhorn/Tunerly</string>
+    <string name="version">Versión</string>
+    <string name="guitar">Guitarra</string>
+    <string name="bass">Bajo</string>
+    <string name="ukulele">Ukulele</string>
+    <string name="ukulele">Cuatro</string>
+    <string name="chromatic">Cromático</string>
+    <string name="language_preference" translatable="false">language_preference</string>
+
+    <!-- Language Preference -->
+    <string-array name="language_array" translatable="false">
+        <item>Español</item>
+        <item>Euskera</item>
+        <item>Inglés</item>
+        <item>Finlandés</item>
+        <item>Alemán</item>
+        <item>Ruso</item>
+    </string-array>
+
+    <string-array name="language_data" translatable="false">
+        <item>es</item>
+        <item>eu</item>
+        <item>en</item>
+        <item>fi</item>
+        <item>de</item>
+        <item>ru</item>
+    </string-array>
+
+</resources>
