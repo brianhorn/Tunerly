@@ -100,3 +100,19 @@ Pribatutasun gidalerro hau bezala, Tunerly librea eta kode irekikoa da. Iragarki
 Egungo pribatutasun gidalerroa aldatu egin daiteke; dokumentu hau eguneratuta egongo da.
 
 Azken eguneratzea: 2020ko abenduaren 3a
+
+## ES
+
+Tunerly se toma muy en serio su privacidad. Esta política de privacidad explica todo lo que necesita saber sobre cómo se manejan sus datos.
+
+Tunerly necesita acceder al micrófono de su smartphone para funcionar correctamente. El audio grabado sólo se utiliza localmente en su teléfono y no se comparte con nadie, incluido el desarrollador. El audio se procesa en tiempo real y no se guarda a largo plazo. No se almacena ni se procesa en ningún dispositivo o servicio que no sea tu teléfono.
+
+Aparte de la grabación de audio, que se utiliza como se ha explicado anteriormente, Tunerly no controla, utiliza, recoge, transmite, distribuye o vende ningún otro dato personal.
+
+En el momento de redactar esta política de privacidad, Tunerly es gratuito y de código abierto. También está libre de publicidad.
+
+La Política de Privacidad actual puede ser modificada, este documento se mantendrá actualizado.
+
+Última actualización: 03 de diciembre de 2020
+
+Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
