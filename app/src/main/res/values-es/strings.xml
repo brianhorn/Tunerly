@@ -84,7 +84,7 @@
     <string name="guitar">Guitarra</string>
     <string name="bass">Bajo</string>
     <string name="ukulele">Ukulele</string>
-    <string name="ukulele">Cuatro</string>
+    <string name="cuatro">Cuatro</string>
     <string name="chromatic">Cromático</string>
     <string name="language_preference" translatable="false">language_preference</string>
 
