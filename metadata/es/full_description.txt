@@ -1,0 +1,8 @@
+Tunerly es una aplicación minimalista y multilenguaje para afinación de instrumentos. La puede usar para afinar su Guitarra, Bajo, Ukulele o Cuatro con multiples variaciones de afinación. También incluye un afinador cromático. Los idiomas soportados actualmente son Inglés, Finlandés, Alemán, Ruso, Euskera y Español. Tunerly también tiene la opción de escojer entre un tema oscuro o claro.
+
+Las afinaciones soportadas son:
+
+* Guitarra: Standard, 7 string, 8 string, E-Flat, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
+* Bajo: 4 string, 5 string, 6 string, Drop D, D Standard, Drop C
+* Ukulele: C (Standard), D (Traditional), Baritone, Bass
+* Cuatro: Tradicional
