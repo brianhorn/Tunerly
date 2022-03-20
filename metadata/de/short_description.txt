@@ -1,1 +1,1 @@
-Eine minimalistische Stimmgerät App für Gitarre, Bass und Ukulele.
+Eine minimalistische Stimmgerät App für Gitarre, Bass, Ukulele und Cuatro.
