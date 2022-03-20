@@ -51,6 +51,12 @@ class PitchProcessing(callback: MyCallback?) {
         "Eb" to TuningData.GuitarEFlat,
         "E-bemol" to TuningData.GuitarEFlat,
 
+        "Full step down" to TuningData.GuitarFullStepDown,
+        "Ganzton tiefer" to TuningData.GuitarFullStepDown,
+        "Koko sävy alempi" to TuningData.GuitarFullStepDown,
+        "На целый тон ниже" to TuningData.GuitarFullStepDown,
+        "Tonu osoa baxuagoa" to TuningData.GuitarFullStepDown,
+
         "Drop D" to TuningData.GuitarDropD,
 
         "Drop Db" to TuningData.GuitarDropDb,
