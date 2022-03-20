@@ -72,6 +72,12 @@ Currently supported languages are: English, Finnish, German, Russian, Basque and
     * Baritone
     
     * Bass
+
+  * Cuatro
+  
+    * C Standard
+    
+    * D Standard 
     
 ## Dependencies
 
