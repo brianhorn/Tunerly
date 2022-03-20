@@ -2,7 +2,7 @@ Tunerly es una aplicación minimalista y multilenguaje para afinación de instru
 
 Las afinaciones soportadas son:
 
-* Guitarra: Standard, 7 string, 8 string, E-Flat, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
+* Guitarra: Standard, 7 string, 8 string, E-Flat, Todo el tono más bajo, Drop D, Drop Db, Double Drop D, DADGAD, Open D, Open A, Open E, Open G
 * Bajo: 4 string, 5 string, 6 string, Drop D, D Standard, Drop C
 * Ukulele: C (Standard), D (Traditional), Baritone, Bass
-* Cuatro: Tradicional
+* Cuatro: C-Standard, D-Standard
