@@ -10,8 +10,8 @@
 </a>
 
 
-Tunerly is suited for tuning your Guitar, Bass or Ukulele to various different tunings. It also includes a chromatic tuner. 
-Currently supported languages are: English, Finnish, German, Russian and Basque.
+Tunerly is suited for tuning your Guitar, Bass, Ukulele or Cuatro to various different tunings. It also includes a chromatic tuner. 
+Currently supported languages are: English, Finnish, German, Russian, Basque and Spanish.
 
 ## Screenshots
 
@@ -28,6 +28,8 @@ Currently supported languages are: English, Finnish, German, Russian and Basque.
     * 8 String
     
     * E-Flat
+    
+    * Full step down 
     
     * Drop D
     
