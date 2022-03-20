@@ -60,7 +60,8 @@
         <item>Bass</item>
     </string-array>
     <string-array name="tuning_array_cuatro">
-        <item>Standard</item>
+        <item>C-Standard</item>
+        <item>D-Standard</item>
     </string-array>
     <string-array name="chromatic">
         <item> </item>

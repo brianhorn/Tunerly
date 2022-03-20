@@ -27,7 +27,9 @@ enum class TuningData(vararg f: Float) {
     UkuleleStandard(392.00F, 261.63F, 329.63F, 440.00F),
     UkuleleTraditional(440.00F, 293.66F, 370.00F, 493.88F),
     UkuleleBaritone(146.83F, 196.00F, 246.94F, 329.63F),
-    UkuleleBass(41.20F, 55.00F, 73.42F, 98.00F);
+    UkuleleBass(41.20F, 55.00F, 73.42F, 98.00F),
 
+    CuatroC(196.00F, 261.63F, 329.63F, 220.00F),
+    CuatroD(220.00F, 293.66F, 370.00F, 246.94F);
     val frequencies: FloatArray = f
 }

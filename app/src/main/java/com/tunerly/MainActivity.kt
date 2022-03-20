@@ -137,6 +137,17 @@ class MainActivity : LocalizationActivity(), MyCallback {
                             tuningSpinner.adapter = adapter
                         }
                     }
+                    getString(R.string.cuatro) -> {
+                        tuningSpinner.visibility = View.VISIBLE
+                        ArrayAdapter.createFromResource(
+                            this@MainActivity,
+                            R.array.tuning_array_cuatro,
+                            android.R.layout.simple_spinner_dropdown_item
+                        ).also { adapter ->
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            tuningSpinner.adapter = adapter
+                        }
+                    }
                     getString(R.string.chromatic) -> tuningSpinner.visibility = View.GONE
 
                 }

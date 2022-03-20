@@ -9,8 +9,8 @@
     <string name="switch_theme">Tema oscuro</string>
     <string name="preference_title">Idioma</string>
     <string name="popup"><![CDATA[
-        <p>Blue arrow: Tune in the direction the arrow points to</p><br>
-        Both arrows green: You are in tune</p>
+        <p>Blue arrow: Sintoniza en la dirección que señala la flecha</p><br>
+        Ambas flechas verdes: Estás en sintonía</p>
     ]]></string>
     <string name="popup_title">Información</string>
     <string name="ok">OK</string>
@@ -31,13 +31,14 @@
     <!-- Tunings -->
     <string-array name="tuning_array_guitar">
         <item>Standard</item>
-        <item>7 String</item>
-        <item>8 String</item>
+        <item>7 cuerda</item>
+        <item>8 cuerda</item>
         <item>E-Flat</item>
+        <item>Todo el tono más bajo</item>
         <item>Drop D</item>
         <item>Drop Db</item>
         <item>Double Drop D</item>
-        <item> DADGAD</item>
+        <item>DADGAD</item>
         <item>Open D</item>
         <item>Open A</item>
         <item>Open E</item>
@@ -45,9 +46,9 @@
         <item>Open B</item>
     </string-array>
     <string-array name="tuning_array_bass">
-        <item>4 String</item>
-        <item>5 String</item>
-        <item>6 String</item>
+        <item>4 cuerda</item>
+        <item>5 cuerda</item>
+        <item>6 cuerda</item>
         <item>Drop-D</item>
         <item>D Standard</item>
         <item>Drop C</item>
@@ -58,8 +59,9 @@
         <item>Baritone</item>
         <item>Bass</item>
     </string-array>
-  <string-array name="tuning_array_cuatro">
-        <item>Tradicional</item>
+    <string-array name="tuning_array_cuatro">
+        <item>C-Standard</item>
+        <item>D-Standard</item>
     </string-array>
     <string-array name="chromatic">
         <item> </item>

@@ -40,12 +40,14 @@ class PitchProcessing(callback: MyCallback?) {
         "7 струн" to TuningData.GuitarSeven,
         "7 soka" to TuningData.GuitarSeven,
         "7 Kielinen" to TuningData.GuitarSeven,
+        "7 cuerda" to TuningData.GuitarSeven,
 
         "8 String" to TuningData.GuitarEight,
         "8 Saiten" to TuningData.GuitarEight,
         "8 струн" to TuningData.GuitarEight,
         "8 soka" to TuningData.GuitarEight,
         "8 Kielinen" to TuningData.GuitarEight,
+        "8 cuerda" to TuningData.GuitarEight,
 
         "E-Flat" to TuningData.GuitarEFlat,
         "Eb" to TuningData.GuitarEFlat,
@@ -56,6 +58,7 @@ class PitchProcessing(callback: MyCallback?) {
         "Koko sävy alempi" to TuningData.GuitarFullStepDown,
         "На целый тон ниже" to TuningData.GuitarFullStepDown,
         "Tonu osoa baxuagoa" to TuningData.GuitarFullStepDown,
+        "Todo el tono más bajo" to TuningData.GuitarFullStepDown,
 
         "Drop D" to TuningData.GuitarDropD,
 
@@ -91,18 +94,21 @@ class PitchProcessing(callback: MyCallback?) {
         "4 струн" to TuningData.BassStandard4,
         "4 soka" to TuningData.BassStandard4,
         "4 Kielinen" to TuningData.BassStandard4,
+        "4 cuerda" to TuningData.BassStandard4,
 
         "5 String" to TuningData.BassStandard5,
         "5 Saiten" to TuningData.BassStandard5,
         "5 струн" to TuningData.BassStandard5,
         "5 soka" to TuningData.BassStandard5,
-        "5 Kielinen" to TuningData.BassStandard4,
+        "5 Kielinen" to TuningData.BassStandard5,
+        "5 cuerda" to TuningData.BassStandard5,
 
         "6 String" to TuningData.BassStandard6,
         "6 Saiten" to TuningData.BassStandard6,
         "6 струн" to TuningData.BassStandard6,
         "6 soka" to TuningData.BassStandard6,
-        "6 Kielinen" to TuningData.BassStandard4,
+        "6 Kielinen" to TuningData.BassStandard6,
+        "6 cuerda" to TuningData.BassStandard6,
 
         "Drop-D" to TuningData.BassDropD,
 
@@ -123,6 +129,7 @@ class PitchProcessing(callback: MyCallback?) {
         "D (Традиционный)" to TuningData.UkuleleTraditional,
         "D (tradizionala)" to TuningData.UkuleleTraditional,
         "D (Perinteinen)" to TuningData.UkuleleTraditional,
+        "D (Tradicional)" to TuningData.UkuleleTraditional,
 
         "Baritone" to TuningData.UkuleleBaritone,
         "Bariton" to TuningData.UkuleleBaritone,
@@ -133,7 +140,17 @@ class PitchProcessing(callback: MyCallback?) {
         "Bass" to TuningData.UkuleleBass,
         "бас" to TuningData.UkuleleBass,
         "Baxua" to TuningData.UkuleleBass,
-        "Basso" to TuningData.UkuleleBass
+        "Basso" to TuningData.UkuleleBass,
+
+        "C-Standard" to TuningData.CuatroC,
+        "C-estandarra" to TuningData.CuatroC,
+        "C-Standardi" to TuningData.CuatroC,
+        "C-Стандарт" to TuningData.CuatroC,
+
+        "D-Standard" to TuningData.CuatroD,
+        "D-estandarra" to TuningData.CuatroD,
+        "D-Standardi" to TuningData.CuatroD,
+        "D-Стандарт" to TuningData.CuatroD
     )
 
     fun tune(pitchInHz: Float, probability: Float) {

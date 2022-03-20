@@ -21,6 +21,7 @@
         <item>Gitarre</item>
         <item>Bass</item>
         <item>Ukulele</item>
+        <item>Cuatro</item>
         <item>Chromatisch</item>
     </string-array>
 
@@ -55,17 +56,22 @@
         <item>Bariton</item>
         <item>Bass</item>
     </string-array>
+    <string-array name="tuning_array_cuatro">
+        <item>C-Standard</item>
+        <item>D-Standard</item>
+    </string-array>
     <string-array name="chromatic">
         <item> </item>
     </string-array>
 
     <!-- Language Preference -->
     <string-array name="language_array" translatable="false">
-        <item>Basque</item>
-        <item>English</item>
-        <item>Finnish</item>
-        <item>German</item>
-        <item>Russian</item>
+        <item>Baskisch</item>
+        <item>Englisch</item>
+        <item>Finnisch</item>
+        <item>Deutsch</item>
+        <item>Russisch</item>
+        <item>Spanisch</item>
     </string-array>
 
     <string-array name="language_data" translatable="false">
@@ -74,6 +80,7 @@
         <item>fi</item>
         <item>de</item>
         <item>ru</item>
+        <item>es</item>
     </string-array>
 
     <string name="switch_theme">Dark Theme</string>
@@ -82,6 +89,7 @@
     <string name="guitar">Gitarre</string>
     <string name="bass">Bass</string>
     <string name="ukulele">Ukulele</string>
+    <string name="cuatro">Cuatro</string>
     <string name="chromatic">Chromatisch</string>
     <string name="version" translatable="false">Version</string>
 </resources>
